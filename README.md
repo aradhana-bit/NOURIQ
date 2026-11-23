@@ -1,49 +1,86 @@
 
+<div align="center">
+
 # University Cafeteria Food Demand & Waste Management System
 
-A full-stack DBMS capstone project designed to streamline university cafeteria operations through centralized data management, food demand monitoring, inventory tracking, and food waste analysis.
+### Smart Cafeteria Operations Through Intelligent Data Management
 
-The system provides a unified platform for managing cafeteria activities, organizing operational records, and supporting data-driven decision-making.
+A full-stack web application designed to streamline university cafeteria operations through centralized data management, food demand monitoring, inventory tracking, and food waste analysis.
 
-## Project Overview
+<br/>
 
-University cafeterias handle multiple interconnected operations, including student records, daily menus, attendance, food preparation, ingredient inventory, purchases, and food waste.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
-Managing these activities independently can make it difficult to maintain accurate records, monitor food consumption, and identify unnecessary wastage.
+</div>
 
-The **University Cafeteria Food Demand & Waste Management System** aims to simplify these operations through a centralized web-based application.
+---
 
-## Objectives
+## Overview
+
+The University Cafeteria Food Demand & Waste Management System is a full-stack Database Management System (DBMS) capstone project developed to simplify and organize university cafeteria operations.
+
+University cafeterias handle multiple interconnected activities, including student records, menu planning, attendance, food preparation, ingredient inventory, supplier information, purchases, and food waste.
+
+Managing these activities independently can create difficulties in maintaining accurate records, monitoring consumption, and identifying unnecessary food wastage.
+
+This project aims to bring these operations together through a centralized web-based application supported by a structured relational database.
+
+## Project Objectives
 
 - Centralize cafeteria operational data.
-- Manage student and menu records.
+- Organize student and menu records.
 - Maintain attendance and food preparation information.
 - Monitor ingredient inventory and purchase records.
 - Track food waste and consumption patterns.
-- Support data-driven cafeteria management.
+- Support efficient cafeteria resource management.
 - Apply relational database concepts through a practical application.
-- Implement authentication and role-based access control.
+- Establish a foundation for data-driven cafeteria operations.
+
+## Key Features
+
+- **Interactive Dashboard:** Provides a centralized overview of cafeteria operations.
+- **Student Management:** Organizes student information and records.
+- **Menu Management:** Provides a dedicated interface for managing cafeteria menus and food items.
+- **Attendance Management:** Maintains attendance-related information.
+- **Food Preparation:** Organizes food preparation records.
+- **Waste Tracking:** Provides a dedicated module for food waste monitoring.
+- **Inventory Management:** Organizes ingredient and stock information.
+- **Supplier Management:** Maintains supplier-related information.
+- **Purchase Management:** Organizes purchase records.
+- **Analytics:** Provides an interface for operational data analysis.
+- **Reports:** Offers a dedicated reporting interface.
+- **Authentication:** Includes bcrypt-based password hashing and JWT authentication components.
+- **Role-Based Access Control:** Includes middleware for protected operations.
 
 ## Technology Stack
 
-| Layer | Technologies |
+| Technology | Purpose |
 |---|---|
-| Frontend | React, Vite |
-| Styling | Tailwind CSS |
-| Backend | Node.js, Express.js |
-| Architecture | MVC |
-| Database | MySQL 8 |
-| Authentication | bcrypt, JWT |
-| Data Visualization | Recharts |
-| Version Control | Git, GitHub |
+| React.js | Frontend development |
+| Vite | Frontend development server and build tool |
+| Tailwind CSS | User interface styling |
+| Node.js | Backend runtime |
+| Express.js | REST API development |
+| MySQL 8 | Relational database |
+| bcrypt | Password hashing |
+| JWT | Token-based authentication |
+| Recharts | Data visualization |
+| Git | Version control |
+| GitHub | Source code hosting |
 
-## Core Modules
+## Application Modules
 
 | Module | Description |
 |---|---|
-| Dashboard | Overview of cafeteria activities |
+| Dashboard | Centralized cafeteria overview |
 | Students | Student record management |
-| Menus | Cafeteria menu management |
+| Menus | Menu and food item management |
 | Attendance | Attendance record management |
 | Food Preparation | Food preparation records |
 | Waste Tracking | Food waste monitoring |
@@ -58,99 +95,123 @@ The **University Cafeteria Food Demand & Waste Management System** aims to simpl
 The application follows a client-server architecture with an MVC-based backend.
 
 ```text
-User
- |
- v
-React Frontend
- |
- v
-Express REST API
- |
- v
-Authentication & Authorization
- |
- v
-MVC Backend
- |
- +---- Models
- +---- Controllers
- +---- Routes
- +---- Middleware
- +---- Configuration
- |
- v
-MySQL Database
+                       USER
+                         |
+                         v
+                  REACT FRONTEND
+                         |
+                         v
+                    EXPRESS API
+                         |
+                         v
+              AUTHENTICATION & RBAC
+                         |
+                         v
+                   MVC BACKEND
+                         |
+              +----------+----------+
+              |          |          |
+              v          v          v
+            Models   Controllers  Routes
+                         |
+                         v
+                    MYSQL 8
 ```
 
 ### Backend Architecture
 
-The backend follows the Model-View-Controller (MVC) architecture.
+The backend follows the Model-View-Controller (MVC) architectural pattern.
 
 - **Models:** Handle database interactions and data operations.
-- **Controllers:** Manage application logic and requests.
-- **Routes:** Define API endpoints.
+- **Controllers:** Manage application logic and request processing.
+- **Routes:** Define and organize API endpoints.
 - **Middleware:** Handle authentication and authorization.
 - **Config:** Manage database and application configuration.
 
 ## Database Design
 
-The application is designed to work with a MySQL relational database.
+The project documentation references a 12-table relational database schema designed to organize university cafeteria operations.
 
-The project report references a 12-table database schema. The following table names are explicitly available in the project documentation:
+The following table names are explicitly identified in the available project documentation:
 
-- `students`
-- `menus`
-- `menu_item`
-- `attendance`
-- `ingredients`
-- `purchases`
-- `food_preparation`
-- `food_waste`
+| Table Name | Description |
+|---|---|
+| `students` | Student information |
+| `menus` | Cafeteria menu records |
+| `menu_item` | Individual menu items |
+| `attendance` | Attendance information |
+| `ingredients` | Ingredient information |
+| `purchases` | Purchase records |
+| `food_preparation` | Food preparation records |
+| `food_waste` | Food waste records |
 
-The original database SQL archive is required to import the complete schema. The starter application does not invent or replace the missing database definitions.
+The complete database schema must be obtained from the original project SQL archive. The starter application does not invent or replace the missing database definitions.
 
-### Database SQL Scripts
+### SQL Implementation Scripts
 
-The project documentation references the following SQL scripts:
+The project documentation references six SQL scripts:
 
-| Script | Purpose |
+| Script | Description |
 |---|---|
 | `01_schema.sql` | Database schema creation |
 | `02_sample_data.sql` | Sample data insertion |
 | `03_objects.sql` | Database objects |
-| `04_analytics_queries.sql` | Analytical queries |
+| `04_analytics_queries.sql` | Analytical SQL queries |
 | `05_transactions.sql` | Transaction operations |
 | `06_security_roles.sql` | Database roles and permissions |
 
-Execute the scripts in the specified order after obtaining the original SQL archive.
+Execute the scripts sequentially after obtaining the original SQL archive.
 
 ## Authentication & Security
 
-The backend starter includes the foundation for authentication and access control.
+The backend starter includes the foundation for secure authentication and authorization.
 
 - Password hashing using bcrypt.
 - JWT-based access and refresh tokens.
-- Protected API routes.
+- Authentication middleware.
+- Protected API route support.
 - Role-Based Access Control (RBAC) middleware.
-- Environment-based configuration.
-- Parameterized SQL queries.
-- Environment files excluded from Git.
+- Environment-based application configuration.
+- Parameterized SQL query support.
 
 ### Security Practices
 
-- Never commit `.env` files or database credentials.
-- Use strong and unique JWT secrets.
-- Configure HTTPS before deployment.
-- Rotate exposed credentials.
-- Restrict database privileges according to application roles.
+- Sensitive credentials are maintained in environment variables.
+- `.env` files are excluded from Git.
+- Strong and unique JWT secrets should be configured.
+- Database permissions should follow the principle of least privilege.
+- HTTPS should be configured before deployment.
+- Exposed credentials should be rotated immediately.
 
-## Getting Started
+## Project Structure
+
+The application separates frontend and backend responsibilities.
+
+```text
+University-Cafeteria-Food-Demand-Waste-Management-System/
+│
+├── frontend/
+│   └── React + Vite application
+│
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   └── routes/
+│
+├── .gitignore
+├── .env.example
+└── README.md
+```
+
+## Installation & Setup
 
 Follow these instructions to run the application locally.
 
 ### Prerequisites
 
-Install the following:
+Install the following tools:
 
 - Node.js 20+
 - MySQL 8+
@@ -166,11 +227,11 @@ cd University-Cafeteria-Food-Demand-Waste-Management-System
 
 ### 2. Database Configuration
 
-1. Start the MySQL server.
+1. Start your MySQL server.
 2. Create the project database.
 3. Obtain the original SQL archive.
-4. Execute the SQL scripts in the specified order.
-5. Verify that the tables and database objects have been created successfully.
+4. Execute the six SQL scripts in the specified order.
+5. Verify that the database tables and objects have been created successfully.
 
 ### 3. Backend Setup
 
@@ -186,7 +247,7 @@ Install dependencies:
 npm install
 ```
 
-Create the environment file.
+Create the environment configuration file.
 
 **Windows PowerShell:**
 
@@ -200,9 +261,9 @@ Copy-Item .env.example .env
 cp .env.example .env
 ```
 
-Configure the database credentials and JWT secrets in `.env`, following the variable names in `.env.example`.
+Configure the database credentials and JWT secrets in `.env`, following the variable names defined in `.env.example`.
 
-Start the backend:
+Start the backend development server:
 
 ```bash
 npm run dev
@@ -210,7 +271,7 @@ npm run dev
 
 ### 4. Frontend Setup
 
-Open another terminal and navigate to the frontend directory:
+Open a separate terminal and navigate to the frontend directory:
 
 ```bash
 cd frontend
@@ -222,7 +283,7 @@ Install dependencies:
 npm install
 ```
 
-Start the frontend:
+Start the frontend development server:
 
 ```bash
 npm run dev
@@ -240,17 +301,17 @@ The current starter application includes an interactive dashboard and navigation
 
 Demo mode allows users to explore the initial interface without connecting the live MySQL database.
 
-**Note:** Demonstration data must not be presented as actual database output or used as evidence of completed live database integration.
+**Important:** Demonstration data must not be presented as actual database output or used as evidence of completed live database integration.
 
-## Development Status
+## Current Development Status
 
 | Component | Status |
 |---|---|
 | React + Vite Frontend | Starter implementation |
-| Dashboard Interface | Implemented with demo data |
+| Dashboard Interface | Implemented with demonstration data |
 | Navigation | Implemented |
 | Express Backend | Starter implementation |
-| MVC Structure | Scaffolded |
+| MVC Folder Structure | Scaffolded |
 | MySQL Integration | Requires schema setup and verification |
 | Authentication | Starter implementation |
 | JWT Access & Refresh Tokens | Starter implementation |
@@ -260,28 +321,33 @@ Demo mode allows users to explore the initial interface without connecting the l
 
 ## Future Enhancements
 
-- Complete integration of all database tables.
+- Complete integration of the original 12-table database schema.
 - Dynamic dashboards powered by live MySQL data.
-- Advanced food demand forecasting.
-- Automated food waste analysis.
-- Inventory threshold notifications.
-- Supplier and purchase analytics.
+- Food demand forecasting.
+- Advanced food waste analytics.
+- Automated inventory threshold notifications.
+- Supplier performance analysis.
+- Purchase trend analysis.
 - Role-specific dashboards and permissions.
-- Exportable operational reports.
-- Improved validation and automated testing.
+- Downloadable operational reports.
+- Improved input validation and automated testing.
 
-## Learning Outcomes
+## Concepts & Learning Outcomes
 
 This project provides practical experience in:
 
-- Relational database design.
-- SQL queries and database operations.
-- Database connectivity using Node.js.
-- Full-stack web application development.
+- Relational Database Management Systems.
+- Database schema design.
+- SQL Data Definition Language (DDL).
+- SQL Data Manipulation Language (DML).
+- SQL queries and joins.
+- Database transactions.
+- Database objects.
 - MVC architecture.
+- REST API development.
 - Authentication and authorization.
+- Full-stack web application development.
 - Data visualization.
-- Database-driven application design.
 
 ## Repository Information
 
@@ -289,13 +355,28 @@ This project provides practical experience in:
 
 **Category:** DBMS Capstone Project
 
+**Project Type:** Full-Stack Web Application
+
+**Frontend:** React.js, Vite, Tailwind CSS
+
+**Backend:** Node.js, Express.js
+
 **Database:** MySQL 8
 
-**Frontend:** React + Vite
+**Authentication:** bcrypt, JWT
 
-**Backend:** Node.js + Express.js
+**Visualization:** Recharts
 
-**GitHub Repository:**  
-https://github.com/aradhana-bit/University-Cafeteria-Food-Demand-Waste-Management-System
+**GitHub Repository:** [University Cafeteria Food Demand & Waste Management System](https://github.com/aradhana-bit/University-Cafeteria-Food-Demand-Waste-Management-System)
 
 ---
+
+<div align="center">
+
+### University Cafeteria Food Demand & Waste Management System
+
+**DBMS Capstone Project | Project 5**
+
+Built using React.js, Node.js, Express.js and MySQL.
+
+</div>
