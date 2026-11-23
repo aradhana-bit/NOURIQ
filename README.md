@@ -375,7 +375,7 @@ This project provides practical experience in:
 
 ### University Cafeteria Food Demand & Waste Management System
 
-**DBMS Capstone Project | Project 5**
+**DBMS Capstone Project**
 
 Built using React.js, Node.js, Express.js and MySQL.
 
