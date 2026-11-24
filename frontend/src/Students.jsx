@@ -8,8 +8,8 @@ export default function Students() {
   const [students, setStudents] = useState([]);
   const [search, setSearch] = useState('');
   const [token, setToken] = useState('');
-  const [email, setEmail] = useState('admin@cafeteria.com');
-  const [password, setPassword] = useState('Admin@12345');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [formOpen, setFormOpen] = useState(false);
