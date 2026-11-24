@@ -6,9 +6,20 @@ export async function summary(req, res, next) {
     const [[attendance]] = await pool.query("SELECT COUNT(*) AS total, SUM(status = 'present') AS present FROM attendance WHERE attendance_date = CURDATE()");
     const [[prepared]] = await pool.query('SELECT COALESCE(SUM(quantity_prepared),0) AS total FROM food_preparation WHERE preparation_date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)');
     const [[waste]] = await pool.query('SELECT COALESCE(SUM(quantity),0) AS total FROM food_waste WHERE waste_date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)');
+    const [demandForecast] = await pool.query(`
+      SELECT meal_type, ROUND(AVG(daily_present)) AS estimated_attendance, COUNT(*) AS days_observed
+      FROM (
+        SELECT meal_type, attendance_date, SUM(status = 'present') AS daily_present
+        FROM attendance
+        WHERE attendance_date >= DATE_SUB(CURDATE(), INTERVAL 13 DAY)
+        GROUP BY meal_type, attendance_date
+      ) AS daily_meals
+      GROUP BY meal_type
+      ORDER BY FIELD(meal_type, 'breakfast', 'lunch', 'snacks', 'dinner')
+    `);
     const [lowStock] = await pool.query('SELECT id, ingredient_name, quantity, unit, reorder_level FROM ingredients WHERE quantity <= reorder_level ORDER BY quantity ASC');
     const [wasteByDay] = await pool.query('SELECT waste_date AS date, SUM(quantity) AS quantity FROM food_waste WHERE waste_date >= DATE_SUB(CURDATE(), INTERVAL 6 DAY) GROUP BY waste_date ORDER BY waste_date');
-    res.json({ students, menu, attendance, prepared: prepared.total, waste: waste.total, lowStock, wasteByDay });
+    res.json({ students, menu, attendance, prepared: prepared.total, waste: waste.total, lowStock, wasteByDay, demandForecast });
   } catch (error) { next(error); }
 }
 export async function report(req, res, next) {
