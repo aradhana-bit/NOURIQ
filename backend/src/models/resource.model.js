@@ -30,13 +30,19 @@ export async function createResource(name, data) {
   const fields = config.fields.filter(field => data[field] !== undefined);
   if (config.required.some(field => data[field] === undefined || data[field] === null || data[field] === '')) throw Object.assign(new Error('Please complete all required fields'), { status: 400 });
   if (!fields.length) throw Object.assign(new Error('No valid fields supplied'), { status: 400 });
+  if (name === 'purchases') {
+    data = { ...data, total_amount: Number(data.quantity) * Number(data.unit_price) };
+  }
   const values = fields.map(field => data[field] === '' ? null : data[field]);
   if (name === 'purchases') {
     const connection = await pool.getConnection();
     try {
       await connection.beginTransaction();
       const [result] = await connection.execute(`INSERT INTO ${config.table} (${fields.join(',')}) VALUES (${fields.map(() => '?').join(',')})`, values);
-      if (data.ingredient_id && (data.status || 'completed') === 'completed') await connection.execute('UPDATE ingredients SET quantity = quantity + ? WHERE id = ?', [Number(data.quantity), data.ingredient_id]);
+      if (data.ingredient_id && (data.status || 'completed') === 'completed') {
+        const [stock] = await connection.execute('UPDATE ingredients SET quantity = quantity + ? WHERE id = ?', [Number(data.quantity), data.ingredient_id]);
+        if (!stock.affectedRows) throw new Error('Selected ingredient was not found');
+      }
       await connection.commit();
       return result.insertId;
     } catch (error) {
@@ -54,7 +60,8 @@ export async function updateResource(name, id, data) {
   const fields = config.fields.filter(field => data[field] !== undefined);
   if (config.required.some(field => data[field] === undefined || data[field] === null || data[field] === '')) throw Object.assign(new Error('Please complete all required fields'), { status: 400 });
   if (!fields.length) throw Object.assign(new Error('No valid fields supplied'), { status: 400 });
-  const values = fields.map(field => data[field] === '' ? null : data[field]);
+  if (name === 'purchases' && data.quantity !== undefined && data.unit_price !== undefined) data = { ...data, total_amount: Number(data.quantity) * Number(data.unit_price) };
+  const values = config.fields.filter(field => data[field] !== undefined).map(field => data[field] === '' ? null : data[field]);
   if (name === 'purchases') {
     const connection = await pool.getConnection();
     try {
