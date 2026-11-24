@@ -7,6 +7,8 @@ import rateLimit from 'express-rate-limit';
 import authRoutes from './src/routes/auth.routes.js';
 import dashboardRoutes from './src/routes/dashboard.routes.js';
 import cafeteriaRoutes from './src/routes/cafeteria.routes.js';
+import resourceRoutes from './src/routes/resource.routes.js';
+import analyticsRoutes from './src/routes/analytics.routes.js';
 import { pool } from './src/config/db.js';
 import { errorHandler } from './src/middleware/error.middleware.js';
 const app = express();
@@ -26,6 +28,8 @@ app.get('/api/db-health', async (req, res) => {
 });
 app.use('/api/auth', authRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api', resourceRoutes);
+app.use('/api/analytics', analyticsRoutes);
 app.use('/api', cafeteriaRoutes);
 app.use(errorHandler);
 const port = process.env.PORT || 5000;
