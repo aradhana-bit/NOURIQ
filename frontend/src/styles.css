@@ -257,3 +257,21 @@ body{background:radial-gradient(ellipse at 84% 0%,rgba(218,207,184,.22),transpar
 .warning{background:#F3F0E6;color:#81734A}
 .healthy{background:#EDF2E9;color:#617B55}
 @media(max-width:700px){.sidebar{box-shadow:12px 0 35px rgba(17,25,37,.38)}}
+
+
+/* Midnight Champagne — atmospheric dashboard canvas */
+.content{
+  position:relative;
+  isolation:isolate;
+  background-color:#F4F3F0;
+  background-image:
+    radial-gradient(ellipse 520px 390px at 92% 4%,rgba(182,154,106,.19),transparent 72%),
+    radial-gradient(ellipse 470px 430px at 4% 36%,rgba(91,119,151,.10),transparent 72%),
+    radial-gradient(ellipse 620px 460px at 76% 92%,rgba(217,201,168,.16),transparent 72%),
+    linear-gradient(rgba(38,54,75,.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(38,54,75,.022) 1px,transparent 1px);
+  background-size:auto,auto,auto,34px 34px,34px 34px;
+  background-attachment:fixed;
+}
+.content>*{position:relative;z-index:1}
+.metric,.panel,.ops-card{background:rgba(255,254,252,.91);backdrop-filter:blur(8px)}
