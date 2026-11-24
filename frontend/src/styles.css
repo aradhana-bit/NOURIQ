@@ -163,3 +163,50 @@ body{background:radial-gradient(ellipse at 82% 0%,rgba(205,211,220,.38),transpar
 .search kbd{background:#ECEEF1;color:#68717D}
 .global-search-results,.notification-popover{border-color:#E2E5E9}
 @media(max-width:700px){.sidebar{box-shadow:12px 0 35px rgba(0,0,0,.38)}}
+
+
+/* Caviar & Olive — signature premium cafeteria palette */
+:root{
+  --earth-bg:#F5F3EE;
+  --earth-green:#171916;
+  --earth-primary:#777B61;
+  --earth-accent:#B8B59F;
+  --earth-text:#252720;
+  --earth-muted:#858579;
+  --earth-border:#E8E5DC;
+  --premium-ink:#252720;
+  --premium-muted:#858579;
+  --premium-line:#E8E5DC;
+  --premium-shadow:0 14px 38px rgba(31,33,25,.055)
+}
+body{background:radial-gradient(ellipse at 84% 0%,rgba(190,190,166,.2),transparent 36%),#F5F3EE;color:#252720}
+.sidebar{background:linear-gradient(180deg,#121411 0%,#1A1D17 58%,#23261F 100%);box-shadow:8px 0 30px rgba(18,20,17,.13)}
+.brand-icon{background:#EAE9DF;color:#555B43}
+.brand small,.workspace-label,.profile small{color:#AAA99B}
+.nav-item{color:#D0D0C7}
+.nav-item:hover{background:rgba(255,255,255,.075);border-color:rgba(255,255,255,.055)}
+.nav-item.selected{background:linear-gradient(100deg,rgba(119,123,97,.32),rgba(119,123,97,.12));border-color:rgba(184,181,159,.17);box-shadow:inset 3px 0 #B8B59F;color:#fff}
+.nav-dot{background:#B8B59F}
+.avatar,.top-avatar{background:#E9E8DE;color:#4D513E}
+.topbar{border-bottom-color:#E8E5DC}
+.crumb b,.heading-row h1,.metric strong,.panel-head h3,.ops-title h2,.ops-card h2{color:#252720}
+.eyebrow{color:#777B61}
+.metric,.panel,.ops-card{border-color:#E8E5DC;box-shadow:0 14px 38px rgba(31,33,25,.055);background:#FFFEFC}
+.metric:before{background:linear-gradient(180deg,#777B61,#B8B59F)}
+.metric-mark,.stock-icon,.module-symbol{background:#ECEDE5;color:#62684D}
+.date-btn:hover,.ops-secondary:hover,.ops-actions button:hover{border-color:#C8C8B6;background:#F3F3EC;color:#454A37}
+.ops-title button,.ops-modal>button[type=submit],.ops-login button[type=submit],.ops-filters>button,.module-actions button{background:#62684D;box-shadow:0 2px 7px rgba(98,104,77,.16)}
+.ops-title button:hover,.ops-modal>button[type=submit]:hover,.ops-login button[type=submit]:hover,.ops-filters>button:hover,.module-actions button:hover{background:#4E543D;box-shadow:0 5px 14px rgba(78,84,61,.2)}
+.ops-table th{background:#F0F0E9;color:#666A55}
+.ops-table tr:hover td{background:#FAFAF5}
+.ops-modal input:focus,.ops-modal select:focus,.ops-login input:focus,.ops-filters input:focus,.search:focus-within{border-color:#A9AC91;box-shadow:0 0 0 3px rgba(119,123,97,.11)}
+.global-search-results button:hover,.notification-popover button:hover{background:#F0F1E9;color:#4E543D}
+.text-link{color:#62684D}
+.insight{background:linear-gradient(110deg,#F2F2E9,#FFFEFC);border-color:#E6E5D9}
+.search kbd{background:#ECEDE5;color:#777B61}
+.global-search-results,.notification-popover{border-color:#E8E5DC}
+.ops-success{color:#55765B;background:#EEF3EC}
+.ops-error{color:#A45151;background:#F8EEEE}
+.warning{background:#F3F0E6;color:#81734A}
+.healthy{background:#EDF2E9;color:#617B55}
+@media(max-width:700px){.sidebar{box-shadow:12px 0 35px rgba(18,20,17,.36)}}
