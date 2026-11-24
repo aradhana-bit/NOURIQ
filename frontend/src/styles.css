@@ -98,3 +98,32 @@ body{background:radial-gradient(ellipse at 82% 0%,rgba(232,211,218,.42),transpar
 .insight{background:linear-gradient(110deg,#FFF8EF,#FFFDF9);border-color:#F1E5D7}
 .positive{color:#47876A}.negative{color:#C36C62}
 @media(max-width:700px){.sidebar{box-shadow:12px 0 35px rgba(43,23,35,.32)}}
+
+
+/* Champagne & Black premium palette */
+:root{--earth-bg:#F7F4EE;--earth-green:#171717;--earth-primary:#B08D57;--earth-accent:#D8C5A3;--earth-text:#242321;--earth-muted:#817D75;--earth-border:#EAE5DC;--premium-ink:#242321;--premium-muted:#817D75;--premium-line:#EAE5DC;--premium-shadow:0 12px 34px rgba(25,23,19,.065)}
+body{background:radial-gradient(ellipse at 82% 0%,rgba(222,207,179,.34),transparent 35%),#F7F4EE;color:#242321}
+.sidebar{background:linear-gradient(180deg,#111 0%,#1B1B1B 58%,#242321 100%);box-shadow:8px 0 30px rgba(0,0,0,.14)}
+.brand-icon{background:#F1E9DA;color:#8D7042}
+.brand small,.workspace-label,.profile small{color:#AAA49A}
+.nav-item{color:#D0CCC4}
+.nav-item:hover{background:rgba(255,255,255,.085);border-color:rgba(255,255,255,.06)}
+.nav-item.selected{background:linear-gradient(100deg,rgba(176,141,87,.28),rgba(176,141,87,.1));border-color:rgba(216,197,163,.16);box-shadow:inset 3px 0 #D8C5A3}
+.nav-dot{background:#D8C5A3}
+.avatar,.top-avatar{background:#EDE5D7;color:#51432C}
+.topbar{border-bottom-color:#EAE5DC}
+.crumb b,.heading-row h1,.metric strong,.panel-head h3,.ops-title h2,.ops-card h2{color:#242321}
+.eyebrow{color:#9A7B48}
+.metric,.panel,.ops-card{border-color:#EAE5DC;box-shadow:0 12px 34px rgba(25,23,19,.065)}
+.metric:before{background:linear-gradient(180deg,#B08D57,#D8C5A3)}
+.metric-mark,.stock-icon,.module-symbol{background:#F2EBDD;color:#947544}
+.date-btn:hover,.ops-secondary:hover,.ops-actions button:hover{border-color:#D6C6A7;background:#F7F1E5;color:#4D402B}
+.ops-title button,.ops-modal>button[type=submit],.ops-login button[type=submit],.ops-filters>button,.module-actions button{background:#9B7A45;box-shadow:0 2px 7px rgba(155,122,69,.2)}
+.ops-title button:hover,.ops-modal>button[type=submit]:hover,.ops-login button[type=submit]:hover,.ops-filters>button:hover,.module-actions button:hover{background:#806337;box-shadow:0 5px 14px rgba(128,99,55,.25)}
+.ops-table th{background:#F3EFE7;color:#71634C}
+.ops-table tr:hover td{background:#FCFAF6}
+.ops-modal input:focus,.ops-modal select:focus,.ops-login input:focus,.ops-filters input:focus,.search:focus-within{border-color:#C5AD80;box-shadow:0 0 0 3px rgba(176,141,87,.12)}
+.global-search-results button:hover,.notification-popover button:hover{background:#F4EFE5;color:#51432C}
+.text-link{color:#947544}
+.insight{background:linear-gradient(110deg,#FBF5E9,#FFFDF8);border-color:#EEE3CF}
+@media(max-width:700px){.sidebar{box-shadow:12px 0 35px rgba(0,0,0,.35)}}
