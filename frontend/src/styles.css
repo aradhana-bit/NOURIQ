@@ -68,3 +68,33 @@ body{background:radial-gradient(ellipse at 82% 0%,rgba(218,235,221,.38),transpar
 .footnote{letter-spacing:.1px}
 @media(max-width:1050px){.content{padding:30px 24px}.topbar{padding:0 24px}}
 @media(max-width:700px){.topbar{height:64px;padding:0 15px}.content{padding:25px 15px}.heading-row h1{font-size:25px}.metric{padding:15px}.metric strong{font-size:23px}.panel{padding:16px}}
+
+
+/* Royal Burgundy palette */
+:root{--earth-bg:#F8F5F4;--earth-green:#351C2B;--earth-primary:#873E59;--earth-accent:#D6A66B;--earth-text:#32252B;--earth-muted:#887B81;--earth-border:#EDE4E6;--premium-ink:#32252B;--premium-muted:#887B81;--premium-line:#EDE4E6;--premium-shadow:0 12px 34px rgba(53,28,43,.065)}
+body{background:radial-gradient(ellipse at 82% 0%,rgba(232,211,218,.42),transparent 35%),#F8F5F4;color:#32252B}
+.sidebar{background:linear-gradient(180deg,#2B1723 0%,#351C2B 55%,#432334 100%);box-shadow:8px 0 30px rgba(53,28,43,.12)}
+.brand-icon{background:#F4E9EC;color:#873E59}
+.brand small,.workspace-label,.profile small{color:#C3AAB4}
+.nav-item{color:#D5C3CB}
+.nav-item:hover{background:rgba(255,255,255,.085);border-color:rgba(255,255,255,.06)}
+.nav-item.selected{background:linear-gradient(100deg,rgba(183,105,133,.3),rgba(183,105,133,.12));border-color:rgba(230,183,198,.16);box-shadow:inset 3px 0 #D6A66B}
+.nav-dot{background:#D6A66B}
+.avatar,.top-avatar{background:#F0E1E6;color:#71374E}
+.topbar{border-bottom-color:#EDE4E6}
+.crumb b,.heading-row h1,.metric strong,.panel-head h3,.ops-title h2,.ops-card h2{color:#351C2B}
+.eyebrow{color:#A45C75}
+.metric,.panel,.ops-card{border-color:#EDE4E6;box-shadow:0 12px 34px rgba(53,28,43,.065)}
+.metric:before{background:linear-gradient(180deg,#873E59,#D6A66B)}
+.metric-mark,.stock-icon,.module-symbol{background:#F5EAED;color:#873E59}
+.date-btn:hover,.ops-secondary:hover,.ops-actions button:hover{border-color:#D7B6C2;background:#FBF3F5;color:#6E3048}
+.ops-title button,.ops-modal>button[type=submit],.ops-login button[type=submit],.ops-filters>button,.module-actions button{background:#873E59;box-shadow:0 2px 7px rgba(135,62,89,.18)}
+.ops-title button:hover,.ops-modal>button[type=submit]:hover,.ops-login button[type=submit]:hover,.ops-filters>button:hover,.module-actions button:hover{background:#713149;box-shadow:0 5px 14px rgba(135,62,89,.25)}
+.ops-table th{background:#F7EFF1;color:#765563}
+.ops-table tr:hover td{background:#FDF9FA}
+.ops-modal input:focus,.ops-modal select:focus,.ops-login input:focus,.ops-filters input:focus,.search:focus-within{border-color:#C58FA2;box-shadow:0 0 0 3px rgba(135,62,89,.1)}
+.global-search-results button:hover,.notification-popover button:hover{background:#F8EFF2;color:#713149}
+.text-link{color:#873E59}
+.insight{background:linear-gradient(110deg,#FFF8EF,#FFFDF9);border-color:#F1E5D7}
+.positive{color:#47876A}.negative{color:#C36C62}
+@media(max-width:700px){.sidebar{box-shadow:12px 0 35px rgba(43,23,35,.32)}}
