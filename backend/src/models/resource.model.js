@@ -27,11 +27,12 @@ export async function listResource(name, search = '') {
 }
 export async function createResource(name, data) {
   const config = getResourceConfig(name);
-  const fields = config.fields.filter(field => data[field] !== undefined);
+  let fields = config.fields.filter(field => data[field] !== undefined);
   if (config.required.some(field => data[field] === undefined || data[field] === null || data[field] === '')) throw Object.assign(new Error('Please complete all required fields'), { status: 400 });
   if (!fields.length) throw Object.assign(new Error('No valid fields supplied'), { status: 400 });
   if (name === 'purchases') {
     data = { ...data, total_amount: Number(data.quantity) * Number(data.unit_price) };
+    fields = config.fields.filter(field => data[field] !== undefined);
   }
   const values = fields.map(field => data[field] === '' ? null : data[field]);
   if (name === 'purchases') {
@@ -57,11 +58,14 @@ export async function createResource(name, data) {
 }
 export async function updateResource(name, id, data) {
   const config = getResourceConfig(name);
-  const fields = config.fields.filter(field => data[field] !== undefined);
+  let fields = config.fields.filter(field => data[field] !== undefined);
   if (config.required.some(field => data[field] === undefined || data[field] === null || data[field] === '')) throw Object.assign(new Error('Please complete all required fields'), { status: 400 });
   if (!fields.length) throw Object.assign(new Error('No valid fields supplied'), { status: 400 });
-  if (name === 'purchases' && data.quantity !== undefined && data.unit_price !== undefined) data = { ...data, total_amount: Number(data.quantity) * Number(data.unit_price) };
-  const values = config.fields.filter(field => data[field] !== undefined).map(field => data[field] === '' ? null : data[field]);
+  if (name === 'purchases' && data.quantity !== undefined && data.unit_price !== undefined) {
+    data = { ...data, total_amount: Number(data.quantity) * Number(data.unit_price) };
+    fields = config.fields.filter(field => data[field] !== undefined);
+  }
+  const values = fields.map(field => data[field] === '' ? null : data[field]);
   if (name === 'purchases') {
     const connection = await pool.getConnection();
     try {
