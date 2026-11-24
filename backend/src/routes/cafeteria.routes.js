@@ -1,27 +1,13 @@
-
 import { Router } from 'express';
 import { authenticate, authorize } from '../middleware/auth.middleware.js';
 import { listTable } from '../controllers/cafeteria.controller.js';
-import {
-  listStudents,
-  showStudent,
-  addStudent,
-  editStudent,
-  removeStudent
-} from '../controllers/student.controller.js';
-
+import { listStudents, showStudent, addStudent, editStudent, removeStudent } from '../controllers/student.controller.js';
 const router = Router();
-
 router.get('/data/:table', authenticate, listTable);
-
 router.get('/students', authenticate, listStudents);
 router.get('/students/:id', authenticate, showStudent);
-router.post('/students', authenticate, addStudent);
-router.put('/students/:id', authenticate, editStudent);
-router.delete('/students/:id', authenticate, removeStudent);
-
-router.get('/manager/overview', authenticate, authorize('manager', 'admin'), (req, res) => {
-  res.json({ message: 'Manager route active' });
-});
-
+router.post('/students', authenticate, authorize('admin','manager'), addStudent);
+router.put('/students/:id', authenticate, authorize('admin','manager'), editStudent);
+router.delete('/students/:id', authenticate, authorize('admin','manager'), removeStudent);
+router.get('/manager/overview', authenticate, authorize('manager','admin'), (req,res)=>res.json({message:'Manager route active'}));
 export default router;
