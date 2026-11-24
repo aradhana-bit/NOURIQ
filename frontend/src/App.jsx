@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { LayoutDashboard, Users, Utensils, ClipboardCheck, CookingPot, Trash2, Package, Truck, ShoppingCart, ChartNoAxesCombined, FileText, Settings, Search, Bell, ChevronDown, ArrowUpRight, ArrowDownRight, Leaf, Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { LayoutDashboard, Users, Utensils, ClipboardCheck, CookingPot, Trash2, Package, Truck, ShoppingCart, ChartNoAxesCombined, FileText, Settings, Search, Bell, ChevronDown, ArrowUpRight, ArrowDownRight, Leaf, Menu, X, Sparkles, AlertTriangle, TrendingUp, RefreshCw } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar, CartesianGrid } from 'recharts';
 import Students from './Students.jsx';
 import Operations from './Operations.jsx';
@@ -26,6 +26,32 @@ function App(){
  const [search,setSearch]=useState('');
  const [notificationOpen,setNotificationOpen]=useState(false);
  const [chartRange,setChartRange]=useState('this-week');
+ const [intelligence,setIntelligence]=useState(null);
+ const [intelligenceLoading,setIntelligenceLoading]=useState(true);
+ const [intelligenceError,setIntelligenceError]=useState('');
+ const api=(import.meta.env.VITE_API_URL || 'http://localhost:5050/api').replace(/\/$/,'');
+ useEffect(()=>{
+  let cancelled=false;
+  async function loadIntelligence(){
+   const token=sessionStorage.getItem('canteeniq_token');
+   if(!token){setIntelligenceLoading(false);setIntelligenceError('Sign in through an operations module to unlock live insights.');return;}
+   try{
+    const response=await fetch(api+'/analytics/summary',{headers:{Authorization:'Bearer '+token}});
+    const data=await response.json();
+    if(!response.ok)throw new Error(data.message||'Could not load live insights');
+    if(!cancelled)setIntelligence(data);
+   }catch(error){if(!cancelled)setIntelligenceError(error.message);}
+   finally{if(!cancelled)setIntelligenceLoading(false);}
+  }
+  loadIntelligence();
+  return ()=>{cancelled=true;};
+ },[api]);
+ const preparedAverage=Number(intelligence?.prepared||0)/7;
+ const wasteTotal=Number(intelligence?.waste||0);
+ const wasteRate=Number(intelligence?.prepared)>0?(wasteTotal/Number(intelligence.prepared))*100:0;
+ const forecast=Math.round(preparedAverage);
+ const stockAlerts=intelligence?.lowStock||[];
+ const smartRecommendation=wasteRate>=10?'Waste is above the 10% watch level. Reduce the next batch for dishes with repeated leftovers.':wasteRate>0?'Waste is currently below the 10% watch level. Keep tracking preparation against actual demand.':'Record preparation and waste entries to generate a useful waste-reduction recommendation.';
  const isOverview=active==='Overview';
  const searchResults=search.trim()?nav.filter(([label])=>label.toLowerCase().includes(search.trim().toLowerCase())).slice(0,5):[];
 
@@ -82,6 +108,19 @@ function App(){
       <Metric title="Meals consumed" value="1,096" change="+5.4%" up/>
       <Metric title="Food waste" value="152 kg" change="-12.8%" up/>
       <Metric title="Waste percentage" value="12.2%" change="-2.1%" up/>
+     </section>
+     <section className="intelligence-panel panel">
+      <div className="intelligence-heading"><div className="intelligence-symbol"><Sparkles size={19}/></div><div><span className="intelligence-kicker">NOURIQ INTELLIGENCE</span><h3>Your cafeteria, understood.</h3><p>Live operational signals with a simple seven-day demand estimate.</p></div><button className="intelligence-refresh" onClick={()=>{setIntelligenceLoading(true);setIntelligenceError('');const token=sessionStorage.getItem('canteeniq_token');if(!token){setIntelligenceLoading(false);setIntelligenceError('Sign in through an operations module to unlock live insights.');return;}fetch(api+'/analytics/summary',{headers:{Authorization:'Bearer '+token}}).then(async r=>{const d=await r.json();if(!r.ok)throw new Error(d.message||'Refresh failed');setIntelligence(d);}).catch(e=>setIntelligenceError(e.message)).finally(()=>setIntelligenceLoading(false));}}><RefreshCw size={15}/> Refresh insights</button></div>
+      {intelligenceLoading?<div className="intelligence-empty">Reading your cafeteria data…</div>:<>
+       <div className="intelligence-cards">
+        <div className="intelligence-card"><span>Estimated daily preparation</span><strong>{intelligence?forecast.toLocaleString('en-IN')+' units':'—'}</strong><small>Based on 7-day preparation average</small></div>
+        <div className="intelligence-card"><span>7-day waste rate</span><strong>{intelligence&&Number(intelligence.prepared)>0?wasteRate.toFixed(1)+'%':'—'}</strong><small>{intelligence?String(wasteTotal.toFixed(1))+' waste units from '+Number(intelligence.prepared).toFixed(1)+' prepared':'Waiting for recorded data'}</small></div>
+        <div className="intelligence-card"><span>Stock items needing attention</span><strong>{intelligence?stockAlerts.length:'—'}</strong><small>{stockAlerts.length?stockAlerts.slice(0,2).map(item=>item.ingredient_name).join(', '):'No low-stock alerts right now'}</small></div>
+       </div>
+       <div className="intelligence-advice"><div className="advice-icon">{wasteRate>=10?<AlertTriangle size={17}/>:<TrendingUp size={17}/>}</div><p><b>{wasteRate>=10?'Waste reduction priority':'Operational recommendation'}</b><br/>{smartRecommendation}</p></div>
+       {intelligenceError&&<p className="intelligence-note">{intelligenceError}</p>}
+      </>}
+      <div className="intelligence-disclaimer">Estimates use recorded database data and simple averages; they are not machine-learning predictions.</div>
      </section>
      <section className="grid-main">
       <div className="panel chart-panel">
