@@ -28,7 +28,7 @@ app.get('/api/db-health', async (req, res) => {
 });
 app.use('/api/auth', authRoutes);
 app.use('/api/dashboard', dashboardRoutes);
-app.use('/api', resourceRoutes);
+app.use('/api/resources', resourceRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api', cafeteriaRoutes);
 app.use(errorHandler);
