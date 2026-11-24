@@ -127,3 +127,39 @@ body{background:radial-gradient(ellipse at 82% 0%,rgba(222,207,179,.34),transpar
 .text-link{color:#947544}
 .insight{background:linear-gradient(110deg,#FBF5E9,#FFFDF8);border-color:#EEE3CF}
 @media(max-width:700px){.sidebar{box-shadow:12px 0 35px rgba(0,0,0,.35)}}
+
+
+/* Obsidian Luxe — graphite, platinum and silver */
+:root{--earth-bg:#F3F4F6;--earth-green:#17191D;--earth-primary:#626B78;--earth-accent:#C7CDD5;--earth-text:#202329;--earth-muted:#777F8A;--earth-border:#E2E5E9;--premium-ink:#202329;--premium-muted:#777F8A;--premium-line:#E2E5E9;--premium-shadow:0 12px 34px rgba(20,24,31,.065)}
+body{background:radial-gradient(ellipse at 82% 0%,rgba(205,211,220,.38),transparent 36%),#F3F4F6;color:#202329}
+.sidebar{background:linear-gradient(180deg,#101216 0%,#191C22 58%,#242830 100%);box-shadow:8px 0 30px rgba(0,0,0,.16)}
+.brand-icon{background:#E7E9ED;color:#343B46}
+.brand small,.workspace-label,.profile small{color:#9DA4AE}
+.nav-item{color:#C5CAD2}
+.nav-item:hover{background:rgba(255,255,255,.085);border-color:rgba(255,255,255,.06)}
+.nav-item.selected{background:linear-gradient(100deg,rgba(145,154,168,.25),rgba(145,154,168,.09));border-color:rgba(205,211,220,.14);box-shadow:inset 3px 0 #D7DCE3;color:#fff}
+.nav-dot{background:#C7CDD5}
+.avatar,.top-avatar{background:#E3E6EB;color:#343B46}
+.topbar{border-bottom-color:#E2E5E9}
+.crumb b,.heading-row h1,.metric strong,.panel-head h3,.ops-title h2,.ops-card h2{color:#202329}
+.eyebrow{color:#687382}
+.metric,.panel,.ops-card{border-color:#E2E5E9;box-shadow:0 12px 34px rgba(20,24,31,.065)}
+.metric:before{background:linear-gradient(180deg,#626B78,#C7CDD5)}
+.metric-mark,.stock-icon,.module-symbol{background:#EAECF0;color:#596372}
+.date-btn:hover,.ops-secondary:hover,.ops-actions button:hover{border-color:#C7CDD5;background:#F0F2F5;color:#343B46}
+.ops-title button,.ops-modal>button[type=submit],.ops-login button[type=submit],.ops-filters>button,.module-actions button{background:#343B46;box-shadow:0 2px 7px rgba(52,59,70,.18)}
+.ops-title button:hover,.ops-modal>button[type=submit]:hover,.ops-login button[type=submit]:hover,.ops-filters>button:hover,.module-actions button:hover{background:#20252D;box-shadow:0 5px 14px rgba(32,37,45,.24)}
+.ops-table th{background:#ECEEF1;color:#59616D}
+.ops-table tr:hover td{background:#F8F9FA}
+.ops-modal input:focus,.ops-modal select:focus,.ops-login input:focus,.ops-filters input:focus,.search:focus-within{border-color:#9DA6B2;box-shadow:0 0 0 3px rgba(98,107,120,.12)}
+.global-search-results button:hover,.notification-popover button:hover{background:#EEF0F3;color:#343B46}
+.text-link{color:#596372}
+.insight{background:linear-gradient(110deg,#F0F2F5,#FAFBFC);border-color:#E1E5EA}
+.positive{color:#557F69}.negative{color:#B66A68}
+.ops-success{color:#47745B;background:#EEF4F0}
+.ops-error{color:#A45151;background:#F8EEEE}
+.warning{background:#F3EEE5;color:#8A7048}
+.healthy{background:#EDF2EF;color:#557B65}
+.search kbd{background:#ECEEF1;color:#68717D}
+.global-search-results,.notification-popover{border-color:#E2E5E9}
+@media(max-width:700px){.sidebar{box-shadow:12px 0 35px rgba(0,0,0,.38)}}
