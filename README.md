@@ -303,6 +303,22 @@ Demo mode allows users to explore the initial interface without connecting the l
 
 **Important:** Demonstration data must not be presented as actual database output or used as evidence of completed live database integration.
 
+## Added Operations Modules
+
+The feature branch adds authenticated CRUD interfaces for menu items, meal attendance, food preparation, food waste, ingredients, suppliers and purchases. Analytics and date-range reports are also provided. Supplier setup is included in the SQL schema.
+
+### Database setup
+Run the schema file in your database SQL editor. If your database already contains the existing tables, run the supplier migration separately:
+```sql
+backend/database/2. suppliers.sql
+```
+
+### Admin seeding
+Copy `backend/.env.example` to `backend/.env`, configure database and JWT values, then set a strong `ADMIN_EMAIL` and `ADMIN_PASSWORD` (12+ characters). Run:
+```bash
+npm run seed:admin
+```
+
 ## Current Development Status
 
 | Component | Status |
