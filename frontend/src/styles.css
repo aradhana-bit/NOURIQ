@@ -275,3 +275,49 @@ body{background:radial-gradient(ellipse at 84% 0%,rgba(218,207,184,.22),transpar
 }
 .content>*{position:relative;z-index:1}
 .metric,.panel,.ops-card{background:rgba(255,254,252,.91);backdrop-filter:blur(8px)}
+
+
+/* Architectural Luxe — layered editorial geometry */
+.content{
+  overflow:hidden;
+  background-color:#F4F3F0;
+  background-image:
+    linear-gradient(135deg,rgba(255,255,255,.74) 0%,rgba(255,255,255,0) 42%),
+    radial-gradient(ellipse at 100% 0%,rgba(182,154,106,.17),transparent 38%),
+    radial-gradient(ellipse at 0% 78%,rgba(38,54,75,.075),transparent 36%),
+    linear-gradient(115deg,transparent 0 68%,rgba(182,154,106,.045) 68.1% 68.35%,transparent 68.45%),
+    repeating-linear-gradient(0deg,rgba(38,54,75,.018) 0 1px,transparent 1px 42px);
+}
+.content:before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  width:430px;
+  height:430px;
+  top:-215px;
+  right:-125px;
+  border:1px solid rgba(182,154,106,.25);
+  border-radius:50%;
+  box-shadow:0 0 0 34px rgba(182,154,106,.035),0 0 0 70px rgba(182,154,106,.025),0 0 0 108px rgba(38,54,75,.018);
+}
+.content:after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  width:310px;
+  height:190px;
+  left:-165px;
+  bottom:7%;
+  border:1px solid rgba(38,54,75,.10);
+  border-radius:46% 54% 62% 38% / 48% 42% 58% 52%;
+  transform:rotate(-24deg);
+  box-shadow:0 0 0 25px rgba(38,54,75,.025),0 0 0 52px rgba(182,154,106,.035);
+}
+.content>*{position:relative;z-index:1}
+.metric,.panel,.ops-card{
+  background:rgba(255,254,252,.94);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(231,229,224,.9);
+}
