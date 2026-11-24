@@ -16,8 +16,8 @@ function emptyForm(config){return Object.fromEntries(config.fields.map(([key,lab
 export default function Operations({ active }) {
   const [token,setToken] = useState(sessionStorage.getItem('canteeniq_token') || '');
   const [user,setUser] = useState(sessionStorage.getItem('canteeniq_user') || '');
-  const [email,setEmail] = useState('admin@cafeteria.com');
-  const [password,setPassword] = useState('Admin@12345');
+  const [email,setEmail] = useState('');
+  const [password,setPassword] = useState('');
   const [rows,setRows] = useState([]);
   const [search,setSearch] = useState('');
   const [loading,setLoading] = useState(false);
@@ -49,7 +49,7 @@ export default function Operations({ active }) {
   async function load() {
     if(!token || !config) return;
     setLoading(true); setError('');
-    try { const data = await request('/'+config.key+'?search='+encodeURIComponent(search)); setRows(data.data || []); }
+    try { const data = await request('/resources/'+config.key+'?search='+encodeURIComponent(search)); setRows(data.data || []); }
     catch(error) { setError(error.message); }
     finally { setLoading(false); }
   }
@@ -68,12 +68,12 @@ export default function Operations({ active }) {
     const payload={...form};
     config.fields.forEach(([key,label,type])=>{if(type==='number' && payload[key]!=='' && payload[key]!==null) payload[key]=Number(payload[key]);if(key==='is_available')payload[key]=String(payload[key])==='1'?1:0;});
     if(active==='Purchases' && !payload.total_amount) payload.total_amount=Number(payload.quantity)*Number(payload.unit_price);
-    try { await request('/'+config.key+(editing?'/'+editing:''),{method:editing?'PUT':'POST',body:JSON.stringify(payload)});setOpen(false);setNotice(editing?'Record updated successfully.':'Record created successfully.');await load(); }
+    try { await request('/resources/'+config.key+(editing?'/'+editing:''),{method:editing?'PUT':'POST',body:JSON.stringify(payload)});setOpen(false);setNotice(editing?'Record updated successfully.':'Record created successfully.');await load(); }
     catch(error){setError(error.message);}
   }
   async function remove(id){
     if(!window.confirm('Delete this record? This action cannot be undone.'))return;
-    try{await request('/'+config.key+'/'+id,{method:'DELETE'});setNotice('Record deleted.');await load();}
+    try{await request('/resources/'+config.key+'/'+id,{method:'DELETE'});setNotice('Record deleted.');await load();}
     catch(error){setError(error.message);}
   }
   function exportCsv(data,filename){
