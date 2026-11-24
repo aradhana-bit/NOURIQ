@@ -515,3 +515,25 @@ body{background:#FFF8E8;color:#30283A}
 .negative{color:#D65E50}
 .nav-item.selected .nav-dot{background:#B7E65A}
 @media(max-width:700px){.sidebar{box-shadow:12px 0 35px rgba(48,32,57,.4)}}
+
+/* NOURIQ intelligence panel */
+.intelligence-panel{margin:0 0 22px;padding:24px 26px;background:linear-gradient(125deg,rgba(255,255,255,.96),rgba(247,242,255,.92));border:1px solid rgba(90,72,115,.12);border-radius:20px;box-shadow:0 12px 32px rgba(48,32,57,.06)}
+.intelligence-heading{display:flex;align-items:center;gap:14px}
+.intelligence-symbol{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:#302039;color:#f4e7d3;flex:none}
+.intelligence-heading>div:nth-child(2){flex:1}
+.intelligence-kicker{font-size:10px;letter-spacing:1.7px;font-weight:800;color:#735a85}
+.intelligence-heading h3{margin:3px 0 4px;font-size:19px;color:#302039}
+.intelligence-heading p{margin:0;color:#777080;font-size:12px}
+.intelligence-refresh{display:flex;align-items:center;gap:7px;border:1px solid #e6deea;background:#fff;border-radius:10px;padding:9px 12px;color:#493754;font-size:12px;font-weight:700;cursor:pointer}
+.intelligence-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.intelligence-card{padding:16px 17px;border:1px solid #eee8f1;border-radius:14px;background:rgba(255,255,255,.82);min-width:0}
+.intelligence-card span,.intelligence-card small{display:block;color:#777080;font-size:11px}
+.intelligence-card strong{display:block;margin:8px 0 5px;font-size:25px;letter-spacing:-.6px;color:#302039}
+.intelligence-card small{line-height:1.5}
+.intelligence-advice{display:flex;align-items:center;gap:12px;margin-top:13px;padding:13px 15px;background:#f5f0df;border-radius:12px;color:#51452d}
+.advice-icon{width:32px;height:32px;display:grid;place-items:center;background:#fff9e9;border-radius:10px;flex:none}
+.intelligence-advice p{margin:0;font-size:12px;line-height:1.55}
+.intelligence-advice b{color:#302039}
+.intelligence-disclaimer,.intelligence-note{margin:10px 0 0;color:#8b8290;font-size:10px}
+.intelligence-empty{padding:24px 0;color:#777080;font-size:13px}
+@media(max-width:760px){.intelligence-panel{padding:18px}.intelligence-heading{flex-wrap:wrap}.intelligence-refresh{margin-left:56px}.intelligence-cards{grid-template-columns:1fr}.intelligence-card strong{font-size:22px}}
