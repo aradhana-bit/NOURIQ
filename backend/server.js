@@ -1,3 +1,4 @@
+
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
@@ -6,6 +7,7 @@ import rateLimit from 'express-rate-limit';
 import authRoutes from './src/routes/auth.routes.js';
 import dashboardRoutes from './src/routes/dashboard.routes.js';
 import cafeteriaRoutes from './src/routes/cafeteria.routes.js';
+import { pool } from './src/config/db.js';
 import { errorHandler } from './src/middleware/error.middleware.js';
 const app = express();
 app.use(helmet());
@@ -13,6 +15,15 @@ app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173' }));
 app.use(express.json({ limit: '1mb' }));
 app.use('/api', rateLimit({ windowMs: 15 * 60 * 1000, max: 300 }));
 app.get('/api/health', (req, res) => res.json({ status: 'ok', service: 'cafeteria-api' }));
+app.get('/api/db-health', async (req, res) => {
+  try {
+    await pool.query('SELECT 1');
+    res.json({ status: 'ok', database: 'connected' });
+  } catch (error) {
+    console.error('Database connection failed:', error.message);
+    res.status(500).json({ status: 'error', database: 'disconnected' });
+  }
+});
 app.use('/api/auth', authRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api', cafeteriaRoutes);
