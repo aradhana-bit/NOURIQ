@@ -55,11 +55,56 @@ export async function updateResource(name, id, data) {
   if (config.required.some(field => data[field] === undefined || data[field] === null || data[field] === '')) throw Object.assign(new Error('Please complete all required fields'), { status: 400 });
   if (!fields.length) throw Object.assign(new Error('No valid fields supplied'), { status: 400 });
   const values = fields.map(field => data[field] === '' ? null : data[field]);
+  if (name === 'purchases') {
+    const connection = await pool.getConnection();
+    try {
+      await connection.beginTransaction();
+      const [[previous]] = await connection.execute('SELECT * FROM purchases WHERE id = ? FOR UPDATE', [id]);
+      if (!previous) { await connection.rollback(); return 0; }
+      if (previous.status === 'completed' && previous.ingredient_id) {
+        const [stock] = await connection.execute('UPDATE ingredients SET quantity = quantity - ? WHERE id = ?', [Number(previous.quantity), previous.ingredient_id]);
+        if (!stock.affectedRows) throw new Error('The previous purchase ingredient no longer exists');
+      }
+      const [result] = await connection.execute(`UPDATE purchases SET ${fields.map(field => `${field} = ?`).join(', ')} WHERE id = ?`, [...values, id]);
+      const nextPurchase = { ...previous, ...data };
+      if (nextPurchase.status === 'completed' && nextPurchase.ingredient_id) {
+        const [stock] = await connection.execute('UPDATE ingredients SET quantity = quantity + ? WHERE id = ?', [Number(nextPurchase.quantity), nextPurchase.ingredient_id]);
+        if (!stock.affectedRows) throw new Error('Selected ingredient was not found');
+      }
+      await connection.commit();
+      return result.affectedRows;
+    } catch (error) {
+      await connection.rollback();
+      throw error;
+    } finally {
+      connection.release();
+    }
+  }
   const [result] = await pool.execute(`UPDATE ${config.table} SET ${fields.map(field => `${field} = ?`).join(', ')} WHERE id = ?`, [...values, id]);
   return result.affectedRows;
 }
 export async function deleteResource(name, id) {
   const config = getResourceConfig(name);
+  if (name === 'purchases') {
+    const connection = await pool.getConnection();
+    try {
+      await connection.beginTransaction();
+      const [[purchase]] = await connection.execute('SELECT * FROM purchases WHERE id = ? FOR UPDATE', [id]);
+      if (!purchase) { await connection.rollback(); return 0; }
+      if (purchase.status === 'completed' && purchase.ingredient_id) {
+        const [stock] = await connection.execute('UPDATE ingredients SET quantity = quantity - ? WHERE id = ?', [Number(purchase.quantity), purchase.ingredient_id]);
+        if (!stock.affectedRows) throw new Error('The purchase ingredient no longer exists');
+      }
+      const [result] = await connection.execute('DELETE FROM purchases WHERE id = ?', [id]);
+      await connection.commit();
+      return result.affectedRows;
+    } catch (error) {
+      await connection.rollback();
+      throw error;
+    } finally {
+      connection.release();
+    }
+  }
   const [result] = await pool.execute(`DELETE FROM ${config.table} WHERE id = ?`, [id]);
   return result.affectedRows;
 }
