@@ -9,6 +9,7 @@ const nav = [
   ['Overview',LayoutDashboard],['Students',Users],['Menu management',Utensils],['Attendance',ClipboardCheck],['Food preparation',CookingPot],['Waste tracking',Trash2],['Inventory',Package],['Suppliers',Truck],['Purchases',ShoppingCart],['Analytics',ChartNoAxesCombined],['Reports',FileText],['Settings',Settings]
 ];
 const weekly = [{day:'Mon',prepared:420,consumed:365,waste:55},{day:'Tue',prepared:460,consumed:410,waste:50},{day:'Wed',prepared:390,consumed:344,waste:46},{day:'Thu',prepared:510,consumed:452,waste:58},{day:'Fri',prepared:480,consumed:429,waste:51},{day:'Sat',prepared:330,consumed:295,waste:35},{day:'Sun',prepared:280,consumed:251,waste:29}];
+const lastWeek = [{day:'Mon',prepared:390,consumed:344,waste:46},{day:'Tue',prepared:430,consumed:380,waste:50},{day:'Wed',prepared:410,consumed:365,waste:45},{day:'Thu',prepared:470,consumed:420,waste:50},{day:'Fri',prepared:450,consumed:402,waste:48},{day:'Sat',prepared:310,consumed:280,waste:30},{day:'Sun',prepared:260,consumed:235,waste:25}];
 const dishes = [{name:'Vegetable pulao',waste:18},{name:'Dal makhani',waste:14},{name:'Paneer curry',waste:12},{name:'Idli sambar',waste:9},{name:'Veg sandwich',waste:7}];
 const stock = [{name:'Basmati rice',qty:'8 kg',status:'Low stock'},{name:'Cooking oil',qty:'24 L',status:'Healthy'},{name:'Potatoes',qty:'12 kg',status:'Healthy'},{name:'Paneer',qty:'3 kg',status:'Low stock'}];
 
@@ -16,7 +17,10 @@ function App(){
  const [active,setActive]=useState('Overview');
  const [mobile,setMobile]=useState(false);
  const [search,setSearch]=useState('');
+ const [notificationOpen,setNotificationOpen]=useState(false);
+ const [chartRange,setChartRange]=useState('this-week');
  const isOverview=active==='Overview';
+ const searchResults=search.trim()?nav.filter(([label])=>label.toLowerCase().includes(search.trim().toLowerCase())).slice(0,5):[];
 
  return <div className="shell">
   <aside className={`sidebar ${mobile?'show':''}`}>
@@ -33,7 +37,7 @@ function App(){
    </nav>
    <div className="sidebar-bottom">
     
-    <div className="profile">
+    <div className="profile" role="button" tabIndex={0} onClick={()=>setActive('Settings')} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setActive('Settings');}}} style={{cursor:'pointer'}}>
      <div className="avatar">AD</div>
      <div><b>Admin Dashboard</b><small>Manager account</small></div>
      <ChevronDown size={16}/>
@@ -48,10 +52,11 @@ function App(){
     <div className="top-actions">
      <label className="search">
       <Search size={16}/>
-      <input placeholder="Search anything..." value={search} onChange={e=>setSearch(e.target.value)}/>
+      <input placeholder="Search modules..." value={search} onChange={e=>setSearch(e.target.value)} onKeyDown={e=>{if(e.key==='Enter'&&searchResults[0]){setActive(searchResults[0][0]);setSearch('');}}}/>
       <kbd>⌘ K</kbd>
      </label>
-     <button className="icon-btn"><Bell size={18}/><i/></button>
+     {search.trim()&&<div className="global-search-results">{searchResults.length?searchResults.map(([label,Icon])=><button key={label} onClick={()=>{setActive(label);setSearch('');}}><Icon size={15}/>{label}</button>):<span>No matching modules</span>}</div>}
+     <div className="notification-wrap"><button className="icon-btn" aria-label="Notifications" onClick={()=>setNotificationOpen(!notificationOpen)}><Bell size={18}/><i/></button>{notificationOpen&&<div className="notification-popover"><b>Notifications</b><p>Review low inventory and recent cafeteria activity.</p><button onClick={()=>{setActive('Inventory');setNotificationOpen(false);}}>Check inventory</button><button onClick={()=>{setActive('Waste tracking');setNotificationOpen(false);}}>Review food waste</button></div>}</div>
      <div className="top-avatar">AD</div>
     </div>
    </header>
@@ -62,7 +67,7 @@ function App(){
       <h1>{isOverview?'Good morning, Admin':active}</h1>
       <p>{isOverview?'Here’s what’s happening in your cafeteria today.':'Manage your cafeteria operations and keep everything running smoothly.'}</p>
      </div>
-     <button className="date-btn">↗ &nbsp; Today, 23 Nov 2026</button>
+     <button className="date-btn" onClick={()=>setActive('Reports')}>View operational reports ↗</button>
     </div>
 
     {isOverview?<>
@@ -76,12 +81,12 @@ function App(){
       <div className="panel chart-panel">
        <div className="panel-head">
         <div><h3>Food demand overview</h3><p>Prepared vs consumed meals this week</p></div>
-        <select><option>This week</option><option>This month</option></select>
+        <select value={chartRange} onChange={e=>setChartRange(e.target.value)}><option value="this-week">This week</option><option value="last-week">Last week</option></select>
        </div>
        <div className="legend"><span><i className="green-dot"/> Prepared</span><span><i className="blue-dot"/> Consumed</span></div>
        <div className="chart">
         <ResponsiveContainer width="100%" height="100%">
-         <AreaChart data={weekly}>
+         <AreaChart data={chartRange==='last-week'?lastWeek:weekly}>
           <defs>
            <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#3d9b72" stopOpacity={.22}/>
@@ -101,7 +106,7 @@ function App(){
       <div className="panel waste-panel">
        <div className="panel-head">
         <div><h3>Waste by dish</h3><p>Top contributors this week</p></div>
-        <button className="dots">···</button>
+        <button className="text-link" onClick={()=>setActive('Waste tracking')}>View entries ↗</button>
        </div>
        <div className="bar-chart">
         <ResponsiveContainer width="100%" height="100%">
@@ -133,7 +138,7 @@ function App(){
       <div className="panel activity">
        <div className="panel-head">
         <div><h3>Today’s activity</h3><p>Latest cafeteria updates</p></div>
-        <button className="dots">···</button>
+        <button className="text-link" onClick={()=>setActive('Reports')}>View report ↗</button>
        </div>
        <div className="activity-item">
         <i className="activity-icon green"><ClipboardCheck size={16}/></i>
