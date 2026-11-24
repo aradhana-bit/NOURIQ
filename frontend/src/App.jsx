@@ -32,7 +32,7 @@ function App(){
     </button>)}
    </nav>
    <div className="sidebar-bottom">
-    <button className="nav-item"><Settings size={18}/>Settings</button>
+    
     <div className="profile">
      <div className="avatar">AD</div>
      <div><b>Admin Dashboard</b><small>Manager account</small></div>
@@ -150,13 +150,7 @@ function App(){
       </div>
      </section>
      <div className="footnote">Demo dashboard data · Connect your MySQL database to display live cafeteria records.</div>
-    </>:active==='Students'?<Students/>:<Operations active={active}/>
-     <div className="module-symbol"><Leaf size={28}/></div>
-     <h2>{active} workspace</h2>
-     <p>This module is ready for implementation. The project structure includes its navigation and backend integration foundation.</p>
-     <div className="module-actions"><button onClick={()=>setActive('Overview')}>Back to overview</button></div>
-     <div className="module-note">Next development step: connect this module to the corresponding MySQL tables from your original SQL package.</div>
-    </div>}
+    </>:active==='Students'?<Students/>:<Operations active={active}/>}
    </div>
   </main>
  </div>
