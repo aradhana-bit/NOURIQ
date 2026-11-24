@@ -371,3 +371,42 @@ body{background:radial-gradient(ellipse at 84% 0%,rgba(218,207,184,.22),transpar
   border:1px solid rgba(229,223,211,.92);
   box-shadow:0 14px 38px rgba(46,42,34,.055);
 }
+
+/* Midnight Garden — colourful, expressive premium dashboard */
+:root{--earth-bg:#F3F2F8;--earth-green:#17233B;--earth-primary:#367C78;--earth-accent:#E8A18B;--earth-text:#25283A;--earth-muted:#777B91;--earth-border:#E7E5F0;--premium-ink:#25283A;--premium-muted:#777B91;--premium-line:#E7E5F0;--premium-shadow:0 14px 38px rgba(35,39,72,.075)}
+body{background:#F3F2F8;color:#25283A}
+.sidebar{background:linear-gradient(180deg,#111B30 0%,#192B43 55%,#203D4A 100%);box-shadow:8px 0 30px rgba(17,27,48,.18)}
+.brand-icon{background:#E6F1EC;color:#28766E}
+.brand small,.workspace-label,.profile small{color:#A9BDCA}
+.nav-item{color:#D5DFE8}
+.nav-item:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.06)}
+.nav-item.selected{background:linear-gradient(100deg,rgba(69,151,137,.34),rgba(69,151,137,.12));border-color:rgba(148,207,190,.2);box-shadow:inset 3px 0 #8CC7B2;color:#fff}
+.nav-dot{background:#F0B39C}
+.avatar,.top-avatar{background:#F8E5DE;color:#9B5F58}
+.topbar{border-bottom-color:#E7E5F0}
+.crumb b,.heading-row h1,.metric strong,.panel-head h3,.ops-title h2,.ops-card h2{color:#25283A}
+.eyebrow{color:#477F83}
+.metric,.panel,.ops-card{border-color:#E7E5F0;box-shadow:0 14px 38px rgba(35,39,72,.075);background:rgba(255,255,255,.94)}
+.metric:before{background:linear-gradient(180deg,#367C78,#E8A18B)}
+.metric-mark,.stock-icon,.module-symbol{background:#E7F1EF;color:#367C78}
+.date-btn:hover,.ops-secondary:hover,.ops-actions button:hover{border-color:#B9D8D1;background:#EDF5F2;color:#285E5C}
+.ops-title button,.ops-modal>button[type=submit],.ops-login button[type=submit],.ops-filters>button,.module-actions button{background:#367C78;box-shadow:0 2px 8px rgba(54,124,120,.2)}
+.ops-title button:hover,.ops-modal>button[type=submit]:hover,.ops-login button[type=submit]:hover,.ops-filters>button:hover,.module-actions button:hover{background:#286663;box-shadow:0 5px 14px rgba(40,102,99,.25)}
+.ops-table th{background:#EEF1F7;color:#58647D}
+.ops-table tr:hover td{background:#F7F8FC}
+.ops-modal input:focus,.ops-modal select:focus,.ops-login input:focus,.ops-filters input:focus,.search:focus-within{border-color:#8BBDB5;box-shadow:0 0 0 3px rgba(54,124,120,.12)}
+.global-search-results button:hover,.notification-popover button:hover{background:#EAF3F1;color:#286663}
+.text-link{color:#367C78}
+.insight{background:linear-gradient(110deg,#EDF5F1,#F9EFF0);border-color:#E6E8EC}
+.search kbd{background:#ECECF4;color:#66708A}
+.global-search-results,.notification-popover{border-color:#E7E5F0}
+.ops-success{color:#28745E;background:#E9F4EF}
+.ops-error{color:#A45165;background:#F9ECEF}
+.warning{background:#FBF1E4;color:#956B35}
+.healthy{background:#EAF4ED;color:#4F805C}
+.content{position:relative;isolation:isolate;overflow:hidden;background-color:#F3F2F8;background-image:radial-gradient(ellipse 540px 390px at 92% 5%,rgba(232,161,139,.30),transparent 72%),radial-gradient(ellipse 520px 470px at 2% 30%,rgba(119,111,180,.19),transparent 72%),radial-gradient(ellipse 620px 480px at 78% 95%,rgba(77,157,143,.20),transparent 72%),radial-gradient(ellipse 340px 280px at 48% 52%,rgba(242,207,155,.16),transparent 75%);background-attachment:fixed}
+.content:before{content:"";position:absolute;z-index:0;pointer-events:none;width:510px;height:510px;right:-190px;top:-260px;border-radius:44% 56% 62% 38% / 43% 42% 58% 57%;transform:rotate(28deg);background:linear-gradient(145deg,rgba(232,161,139,.18),rgba(119,111,180,.10) 52%,rgba(54,124,120,.13));box-shadow:0 0 0 30px rgba(255,255,255,.15),0 0 0 62px rgba(119,111,180,.045)}
+.content:after{content:"";position:absolute;z-index:0;pointer-events:none;width:390px;height:270px;left:-175px;bottom:3%;border-radius:58% 42% 37% 63% / 54% 40% 60% 46%;transform:rotate(-22deg);background:linear-gradient(125deg,rgba(54,124,120,.13),rgba(119,111,180,.11),rgba(232,161,139,.13));box-shadow:0 0 0 24px rgba(255,255,255,.13),0 0 0 52px rgba(54,124,120,.035)}
+.content>*{position:relative;z-index:1}
+.metric,.panel,.ops-card{background:rgba(255,255,255,.91);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.82);box-shadow:0 16px 42px rgba(35,39,72,.075)}
+@media(max-width:700px){.sidebar{box-shadow:12px 0 35px rgba(17,27,48,.4)}}
