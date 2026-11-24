@@ -410,3 +410,53 @@ body{background:#F3F2F8;color:#25283A}
 .content>*{position:relative;z-index:1}
 .metric,.panel,.ops-card{background:rgba(255,255,255,.91);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.82);box-shadow:0 16px 42px rgba(35,39,72,.075)}
 @media(max-width:700px){.sidebar{box-shadow:12px 0 35px rgba(17,27,48,.4)}}
+
+
+/* Arctic Luxe — crisp ivory, charcoal and electric blue */
+:root{
+  --earth-bg:#F6F7FA;
+  --earth-green:#20232B;
+  --earth-primary:#4568E8;
+  --earth-accent:#9A8CF4;
+  --earth-text:#252936;
+  --earth-muted:#858B9B;
+  --earth-border:#E8EAF0;
+  --premium-ink:#252936;
+  --premium-muted:#858B9B;
+  --premium-line:#E8EAF0;
+  --premium-shadow:0 10px 30px rgba(30,38,65,.045)
+}
+body{background:#F6F7FA;color:#252936}
+.sidebar{background:#20232B;box-shadow:5px 0 22px rgba(20,24,34,.08)}
+.brand-icon{background:#EEF1FF;color:#4568E8}
+.brand small,.workspace-label,.profile small{color:#A5A9B6}
+.nav-item{color:#C9CCD5}
+.nav-item:hover{background:#30343F;border-color:transparent}
+.nav-item.selected{background:#343A49;border-color:#42495B;box-shadow:inset 3px 0 #718BFF;color:#fff}
+.nav-dot{background:#9A8CF4}
+.avatar,.top-avatar{background:#EEF1FF;color:#4568E8}
+.topbar{background:#fff;border-bottom:1px solid #E8EAF0}
+.content{background:#F6F7FA;background-image:none!important;overflow:visible}
+.content:before,.content:after{content:none!important;display:none!important}
+.crumb b,.heading-row h1,.metric strong,.panel-head h3,.ops-title h2,.ops-card h2{color:#252936}
+.eyebrow{color:#4568E8}
+.metric,.panel,.ops-card{background:#fff;border:1px solid #E8EAF0;box-shadow:0 10px 30px rgba(30,38,65,.045);backdrop-filter:none}
+.metric:before{background:#4568E8}
+.metric-mark,.stock-icon,.module-symbol{background:#EEF1FF;color:#4568E8}
+.date-btn,.ops-secondary,.ops-actions button{border-color:#E5E8F0}
+.date-btn:hover,.ops-secondary:hover,.ops-actions button:hover{border-color:#BBC7FF;background:#F2F4FF;color:#354FC0}
+.ops-title button,.ops-modal>button[type=submit],.ops-login button[type=submit],.ops-filters>button,.module-actions button{background:#4568E8;box-shadow:0 3px 8px rgba(69,104,232,.16)}
+.ops-title button:hover,.ops-modal>button[type=submit]:hover,.ops-login button[type=submit]:hover,.ops-filters>button:hover,.module-actions button:hover{background:#3455D0;box-shadow:0 5px 14px rgba(69,104,232,.22)}
+.ops-table th{background:#F4F5F8;color:#626A7D}
+.ops-table tr:hover td{background:#F8F9FC}
+.ops-modal input:focus,.ops-modal select:focus,.ops-login input:focus,.ops-filters input:focus,.search:focus-within{border-color:#91A5FF;box-shadow:0 0 0 3px rgba(69,104,232,.10)}
+.global-search-results,.notification-popover{border-color:#E8EAF0;box-shadow:0 14px 34px rgba(30,38,65,.12)}
+.global-search-results button:hover,.notification-popover button:hover{background:#F1F3FF;color:#354FC0}
+.text-link{color:#4568E8}
+.insight{background:#F5F6FC;border-color:#E8EAF0}
+.search kbd{background:#F0F1F5;color:#707789}
+.ops-success{color:#287653;background:#EAF5EF}
+.ops-error{color:#A94F59;background:#F9ECEE}
+.warning{background:#FFF4E7;color:#9A6A2F}
+.healthy{background:#EAF4ED;color:#4F805C}
+@media(max-width:700px){.sidebar{box-shadow:12px 0 35px rgba(20,24,34,.3)}}
