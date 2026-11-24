@@ -321,3 +321,53 @@ body{background:radial-gradient(ellipse at 84% 0%,rgba(218,207,184,.22),transpar
   backdrop-filter:blur(10px);
   border:1px solid rgba(231,229,224,.9);
 }
+
+
+/* Marble Palace — ivory stone with delicate champagne veining */
+.content{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background-color:#F5F2EB;
+  background-image:
+    radial-gradient(ellipse at 18% 22%,rgba(255,255,255,.92),transparent 42%),
+    radial-gradient(ellipse at 82% 76%,rgba(220,211,194,.30),transparent 43%),
+    linear-gradient(117deg,transparent 0 17%,rgba(174,149,111,.11) 17.08%,rgba(255,255,255,.52) 17.22%,transparent 17.48% 100%),
+    linear-gradient(153deg,transparent 0 39%,rgba(174,149,111,.10) 39.08%,rgba(255,255,255,.55) 39.2%,transparent 39.48% 100%),
+    linear-gradient(27deg,transparent 0 72%,rgba(174,149,111,.09) 72.08%,rgba(255,255,255,.48) 72.2%,transparent 72.5% 100%),
+    repeating-linear-gradient(112deg,rgba(92,84,70,.018) 0 1px,transparent 1px 7px);
+  background-attachment:fixed;
+}
+.content:before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  inset:-12% -8%;
+  opacity:.62;
+  background:
+    linear-gradient(124deg,transparent 0 21%,rgba(169,143,102,.12) 21.06%,rgba(255,255,255,.76) 21.16%,rgba(169,143,102,.06) 21.24%,transparent 21.42% 100%),
+    linear-gradient(129deg,transparent 0 22.5%,rgba(169,143,102,.07) 22.58%,transparent 22.82% 100%),
+    linear-gradient(151deg,transparent 0 58%,rgba(169,143,102,.10) 58.08%,rgba(255,255,255,.68) 58.18%,transparent 58.42% 100%),
+    linear-gradient(154deg,transparent 0 59.5%,rgba(169,143,102,.06) 59.58%,transparent 59.85% 100%);
+}
+.content:after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  width:520px;
+  height:520px;
+  right:-230px;
+  bottom:-290px;
+  border:1px solid rgba(177,151,112,.17);
+  border-radius:50%;
+  box-shadow:0 0 0 22px rgba(255,255,255,.16),0 0 0 48px rgba(177,151,112,.045),0 0 0 76px rgba(255,255,255,.12);
+}
+.content>*{position:relative;z-index:1}
+.metric,.panel,.ops-card{
+  background:rgba(255,254,251,.94);
+  backdrop-filter:blur(9px);
+  border:1px solid rgba(229,223,211,.92);
+  box-shadow:0 14px 38px rgba(46,42,34,.055);
+}
