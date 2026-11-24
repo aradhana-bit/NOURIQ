@@ -51,6 +51,7 @@ function App(){
  const wasteRate=Number(intelligence?.prepared)>0?(wasteTotal/Number(intelligence.prepared))*100:0;
  const forecast=Math.round(preparedAverage);
  const stockAlerts=intelligence?.lowStock||[];
+ const demandForecast=intelligence?.demandForecast||[];
  const smartRecommendation=wasteRate>=10?'Waste is above the 10% watch level. Reduce the next batch for dishes with repeated leftovers.':wasteRate>0?'Waste is currently below the 10% watch level. Keep tracking preparation against actual demand.':'Record preparation and waste entries to generate a useful waste-reduction recommendation.';
  const isOverview=active==='Overview';
  const searchResults=search.trim()?nav.filter(([label])=>label.toLowerCase().includes(search.trim().toLowerCase())).slice(0,5):[];
@@ -121,6 +122,11 @@ function App(){
        {intelligenceError&&<p className="intelligence-note">{intelligenceError}</p>}
       </>}
       <div className="intelligence-disclaimer">Estimates use recorded database data and simple averages; they are not machine-learning predictions.</div>
+     </section>
+     <section className="demand-forecast-panel panel">
+      <div className="demand-forecast-heading"><div><span className="intelligence-kicker">MEAL-WISE FORECAST</span><h3>Plan the next kitchen batch.</h3><p>Average daily student attendance by meal over the last 14 days.</p></div><span className="forecast-window">14-day history</span></div>
+      {intelligenceLoading?<div className="intelligence-empty">Calculating meal demand…</div>:demandForecast.length?<div className="forecast-grid">{demandForecast.map(item=><div className="forecast-item" key={item.meal_type}><span>{String(item.meal_type).replace(/^./,c=>c.toUpperCase())}</span><strong>{Math.round(Number(item.estimated_attendance)).toLocaleString('en-IN')}</strong><small>estimated students / day</small><em>{item.days_observed} days of records</em></div>)}</div>:<div className="intelligence-empty">No attendance history found for the last 14 days. Add attendance records to generate meal-wise estimates.</div>}
+      <p className="forecast-disclaimer">This is a historical attendance average, not a machine-learning prediction. Use it as a planning baseline and adjust for events or holidays.</p>
      </section>
      <section className="grid-main">
       <div className="panel chart-panel">
