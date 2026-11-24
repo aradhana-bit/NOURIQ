@@ -2,12 +2,12 @@
 import { useEffect, useState } from 'react';
 import { Search, Plus, Pencil, Trash2, X, Users, RefreshCw } from 'lucide-react';
 
-const API = 'http://localhost:5050/api';
+const API = (import.meta.env.VITE_API_URL || 'http://localhost:5050/api').replace(/\/$/, '');
 
 export default function Students() {
   const [students, setStudents] = useState([]);
   const [search, setSearch] = useState('');
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState(sessionStorage.getItem('canteeniq_token') || '');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -27,6 +27,8 @@ export default function Students() {
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.message || 'Login failed');
+      sessionStorage.setItem('canteeniq_token', result.accessToken);
+      sessionStorage.setItem('canteeniq_user', result.user?.name || result.user?.email || 'Admin');
       setToken(result.accessToken);
     } catch (err) {
       setError(err.message);
