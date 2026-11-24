@@ -3,9 +3,10 @@ import { useState } from 'react';
 import { LayoutDashboard, Users, Utensils, ClipboardCheck, CookingPot, Trash2, Package, Truck, ShoppingCart, ChartNoAxesCombined, FileText, Settings, Search, Bell, ChevronDown, ArrowUpRight, ArrowDownRight, Leaf, Menu, X } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar, CartesianGrid } from 'recharts';
 import Students from './Students.jsx';
+import Operations from './Operations.jsx';
 
 const nav = [
-  ['Overview',LayoutDashboard],['Students',Users],['Menu management',Utensils],['Attendance',ClipboardCheck],['Food preparation',CookingPot],['Waste tracking',Trash2],['Inventory',Package],['Suppliers',Truck],['Purchases',ShoppingCart],['Analytics',ChartNoAxesCombined],['Reports',FileText]
+  ['Overview',LayoutDashboard],['Students',Users],['Menu management',Utensils],['Attendance',ClipboardCheck],['Food preparation',CookingPot],['Waste tracking',Trash2],['Inventory',Package],['Suppliers',Truck],['Purchases',ShoppingCart],['Analytics',ChartNoAxesCombined],['Reports',FileText],['Settings',Settings]
 ];
 const weekly = [{day:'Mon',prepared:420,consumed:365,waste:55},{day:'Tue',prepared:460,consumed:410,waste:50},{day:'Wed',prepared:390,consumed:344,waste:46},{day:'Thu',prepared:510,consumed:452,waste:58},{day:'Fri',prepared:480,consumed:429,waste:51},{day:'Sat',prepared:330,consumed:295,waste:35},{day:'Sun',prepared:280,consumed:251,waste:29}];
 const dishes = [{name:'Vegetable pulao',waste:18},{name:'Dal makhani',waste:14},{name:'Paneer curry',waste:12},{name:'Idli sambar',waste:9},{name:'Veg sandwich',waste:7}];
@@ -149,7 +150,7 @@ function App(){
       </div>
      </section>
      <div className="footnote">Demo dashboard data · Connect your MySQL database to display live cafeteria records.</div>
-    </>:active==='Students'?<Students/>:<div className="module-panel panel">
+    </>:active==='Students'?<Students/>:<Operations active={active}/>
      <div className="module-symbol"><Leaf size={28}/></div>
      <h2>{active} workspace</h2>
      <p>This module is ready for implementation. The project structure includes its navigation and backend integration foundation.</p>
