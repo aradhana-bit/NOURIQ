@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { LayoutDashboard, Users, Utensils, ClipboardCheck, CookingPot, Trash2, Package, Truck, ShoppingCart, ChartNoAxesCombined, FileText, Settings, Search, Bell, ChevronDown, ArrowUpRight, ArrowDownRight, Leaf, Menu, X } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar, CartesianGrid } from 'recharts';
@@ -13,6 +12,14 @@ const lastWeek = [{day:'Mon',prepared:390,consumed:344,waste:46},{day:'Tue',prep
 const dishes = [{name:'Vegetable pulao',waste:18},{name:'Dal makhani',waste:14},{name:'Paneer curry',waste:12},{name:'Idli sambar',waste:9},{name:'Veg sandwich',waste:7}];
 const stock = [{name:'Basmati rice',qty:'8 kg',status:'Low stock'},{name:'Cooking oil',qty:'24 L',status:'Healthy'},{name:'Potatoes',qty:'12 kg',status:'Healthy'},{name:'Paneer',qty:'3 kg',status:'Low stock'}];
 
+function BrandMark(){
+ return <svg viewBox="0 0 40 40" width="25" height="25" fill="none" aria-hidden="true">
+  <circle cx="20" cy="20" r="16" stroke="currentColor" strokeWidth="2.2"/>
+  <circle cx="20" cy="20" r="11" stroke="currentColor" strokeWidth="1.5" opacity=".55"/>
+  <path d="M20 26V15m0 5c-5 0-7-3-7-7 4 0 7 2 7 7Zm0-2c0-5 3-8 8-8 0 5-3 8-8 8Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+ </svg>;
+}
+
 function App(){
  const [active,setActive]=useState('Overview');
  const [mobile,setMobile]=useState(false);
@@ -25,8 +32,8 @@ function App(){
  return <div className="shell">
   <aside className={`sidebar ${mobile?'show':''}`}>
    <div className="brand">
-    <div className="brand-icon"><Leaf size={21}/></div>
-    <div><b>CanteenIQ</b><small>FOOD • DATA • IMPACT</small></div>
+    <div className="brand-icon"><BrandMark/></div>
+    <div><b>NOURIQ</b><small>SMART FOOD • LESS WASTE</small></div>
     <button className="close" onClick={()=>setMobile(false)}><X/></button>
    </div>
    <div className="workspace-label">WORKSPACE</div>
@@ -36,7 +43,6 @@ function App(){
     </button>)}
    </nav>
    <div className="sidebar-bottom">
-    
     <div className="profile" role="button" tabIndex={0} onClick={()=>setActive('Settings')} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setActive('Settings');}}} style={{cursor:'pointer'}}>
      <div className="avatar">AD</div>
      <div><b>Admin Dashboard</b><small>Manager account</small></div>
