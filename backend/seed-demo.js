@@ -33,7 +33,27 @@ async function seedDemoData() {
     ['DEMO007', 'Vivaan Kapoor', 'vivaan.kapoor@example.test', 'Civil', '9000000007'],
     ['DEMO008', 'Saanvi Rao', 'saanvi.rao@example.test', 'Computer Science', '9000000008'],
     ['DEMO009', 'Aditya Joshi', 'aditya.joshi@example.test', 'Electronics', '9000000009'],
-    ['DEMO010', 'Diya Malhotra', 'diya.malhotra@example.test', 'Business Administration', '9000000010']
+    ['DEMO010', 'Diya Malhotra', 'diya.malhotra@example.test', 'Business Administration', '9000000010'],
+    ['DEMO011', 'Arjun Khanna', 'arjun.khanna@example.test', 'Computer Science', '9000000011'],
+    ['DEMO012', 'Aditi Bansal', 'aditi.bansal@example.test', 'Information Technology', '9000000012'],
+    ['DEMO013', 'Reyansh Sood', 'reyansh.sood@example.test', 'Electronics', '9000000013'],
+    ['DEMO014', 'Myra Iyer', 'myra.iyer@example.test', 'Mechanical', '9000000014'],
+    ['DEMO015', 'Krish Malhotra', 'krish.malhotra@example.test', 'Civil', '9000000015'],
+    ['DEMO016', 'Sara Khan', 'sara.khan@example.test', 'Computer Science', '9000000016'],
+    ['DEMO017', 'Atharv Jain', 'atharv.jain@example.test', 'Information Technology', '9000000017'],
+    ['DEMO018', 'Kiara Das', 'kiara.das@example.test', 'Electronics', '9000000018'],
+    ['DEMO019', 'Dev Patel', 'dev.patel@example.test', 'Business Administration', '9000000019'],
+    ['DEMO020', 'Navya Reddy', 'navya.reddy@example.test', 'Computer Science', '9000000020'],
+    ['DEMO021', 'Ayaan Kapoor', 'ayaan.kapoor@example.test', 'Information Technology', '9000000021'],
+    ['DEMO022', 'Tara Menon', 'tara.menon@example.test', 'Mechanical', '9000000022'],
+    ['DEMO023', 'Ishaan Arora', 'ishaan.arora@example.test', 'Civil', '9000000023'],
+    ['DEMO024', 'Riya Chawla', 'riya.chawla@example.test', 'Electronics', '9000000024'],
+    ['DEMO025', 'Dhruv Sethi', 'dhruv.sethi@example.test', 'Computer Science', '9000000025'],
+    ['DEMO026', 'Anika Bose', 'anika.bose@example.test', 'Information Technology', '9000000026'],
+    ['DEMO027', 'Vihaan Gill', 'vihaan.gill@example.test', 'Business Administration', '9000000027'],
+    ['DEMO028', 'Sia Thomas', 'sia.thomas@example.test', 'Mechanical', '9000000028'],
+    ['DEMO029', 'Yuvaan Roy', 'yuvaan.roy@example.test', 'Civil', '9000000029'],
+    ['DEMO030', 'Mira Fernandes', 'mira.fernandes@example.test', 'Electronics', '9000000030']
   ];
   const studentIds = [];
   for (const row of studentRows) {
@@ -55,7 +75,7 @@ async function seedDemoData() {
   const lunchByDate = [];
   const itemsByDate = [];
 
-  for (let offset = -6; offset <= 0; offset++) {
+  for (let offset = -13; offset <= 0; offset++) {
     const date = dateOffset(offset);
     for (const meal of meals) {
       const menuId = await ensureRow(
@@ -172,7 +192,7 @@ async function seedDemoData() {
     );
   }
 
-  console.log('Demo data ready: 10 students, 28 menus, 56 menu items, attendance, preparation, waste, inventory, suppliers and purchases.');
+  console.log('Demo data ready: 30 students, 56 menus, 112 menu items, 420 attendance records, preparation, waste, 10 ingredients, 4 suppliers and 6 purchases.');
 }
 
 try {
