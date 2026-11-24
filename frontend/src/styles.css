@@ -210,3 +210,50 @@ body{background:radial-gradient(ellipse at 84% 0%,rgba(190,190,166,.2),transpare
 .warning{background:#F3F0E6;color:#81734A}
 .healthy{background:#EDF2E9;color:#617B55}
 @media(max-width:700px){.sidebar{box-shadow:12px 0 35px rgba(18,20,17,.36)}}
+
+
+/* Midnight Champagne — refined hospitality SaaS palette */
+:root{
+  --earth-bg:#F4F3F0;
+  --earth-green:#17202D;
+  --earth-primary:#B69A6A;
+  --earth-accent:#D9C9A8;
+  --earth-text:#242832;
+  --earth-muted:#858895;
+  --earth-border:#E7E5E0;
+  --premium-ink:#242832;
+  --premium-muted:#858895;
+  --premium-line:#E7E5E0;
+  --premium-shadow:0 14px 38px rgba(25,32,45,.06)
+}
+body{background:radial-gradient(ellipse at 84% 0%,rgba(218,207,184,.22),transparent 36%),#F4F3F0;color:#242832}
+.sidebar{background:linear-gradient(180deg,#111925 0%,#192536 58%,#202E40 100%);box-shadow:8px 0 30px rgba(17,25,37,.15)}
+.brand-icon{background:#F0E9DC;color:#7E6947}
+.brand small,.workspace-label,.profile small{color:#AEB7C4}
+.nav-item{color:#D0D7E0}
+.nav-item:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.06)}
+.nav-item.selected{background:linear-gradient(100deg,rgba(182,154,106,.27),rgba(182,154,106,.1));border-color:rgba(217,201,168,.17);box-shadow:inset 3px 0 #D9C9A8;color:#fff}
+.nav-dot{background:#D9C9A8}
+.avatar,.top-avatar{background:#EDE7DA;color:#5A4B34}
+.topbar{border-bottom-color:#E7E5E0}
+.crumb b,.heading-row h1,.metric strong,.panel-head h3,.ops-title h2,.ops-card h2{color:#242832}
+.eyebrow{color:#9B8055}
+.metric,.panel,.ops-card{border-color:#E7E5E0;box-shadow:0 14px 38px rgba(25,32,45,.06);background:#FFFEFC}
+.metric:before{background:linear-gradient(180deg,#B69A6A,#D9C9A8)}
+.metric-mark,.stock-icon,.module-symbol{background:#F0ECE3;color:#92784F}
+.date-btn:hover,.ops-secondary:hover,.ops-actions button:hover{border-color:#D7C8AA;background:#F6F2E9;color:#51452F}
+.ops-title button,.ops-modal>button[type=submit],.ops-login button[type=submit],.ops-filters>button,.module-actions button{background:#26364B;box-shadow:0 2px 7px rgba(38,54,75,.18)}
+.ops-title button:hover,.ops-modal>button[type=submit]:hover,.ops-login button[type=submit]:hover,.ops-filters>button:hover,.module-actions button:hover{background:#192638;box-shadow:0 5px 14px rgba(25,38,56,.24)}
+.ops-table th{background:#F0EFEA;color:#71644D}
+.ops-table tr:hover td{background:#FAF9F5}
+.ops-modal input:focus,.ops-modal select:focus,.ops-login input:focus,.ops-filters input:focus,.search:focus-within{border-color:#C7B48F;box-shadow:0 0 0 3px rgba(182,154,106,.12)}
+.global-search-results button:hover,.notification-popover button:hover{background:#F3F0E8;color:#51452F}
+.text-link{color:#92784F}
+.insight{background:linear-gradient(110deg,#F6F1E7,#FFFEFC);border-color:#ECE4D4}
+.search kbd{background:#ECEAE4;color:#777B86}
+.global-search-results,.notification-popover{border-color:#E7E5E0}
+.ops-success{color:#55765B;background:#EEF3EC}
+.ops-error{color:#A45151;background:#F8EEEE}
+.warning{background:#F3F0E6;color:#81734A}
+.healthy{background:#EDF2E9;color:#617B55}
+@media(max-width:700px){.sidebar{box-shadow:12px 0 35px rgba(17,25,37,.38)}}
