@@ -1,0 +1,23 @@
+databases:
+  - name: nouriq-cafeteria-db
+    plan: free
+    region: singapore
+    postgresMajorVersion: "16"
+    databaseName: nouriq_cafeteria_db
+    user: nouriq_cafeteria_db_user
+
+services:
+  - type: web
+    name: nouriq-cafeteria-api
+    runtime: node
+    plan: free
+    region: singapore
+    branch: feature/complete-cafeteria-modules
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    autoDeployTrigger: commit
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: nouriq-cafeteria-db
+          property: connectionString
