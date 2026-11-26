@@ -1,9 +1,9 @@
 # NOURIQ
 
-A full-stack web application for managing university cafeteria operations through centralized student records, menu data, attendance, food preparation, inventory, purchasing, and food-waste monitoring.
+A full-stack web application for managing university cafeteria operations and food waste through centralized student records, menu data, attendance, food preparation, inventory, purchasing, and waste monitoring.
 
 <p align="center">
-  <strong>University Cafeteria Management System</strong><br />
+  <strong>University Cafeteria & Food Waste Management System</strong><br />
   React · Vite · Node.js · Express · MySQL
 </p>
 
@@ -303,7 +303,7 @@ NOURIQ/
 | Field | Details |
 |---|---|
 | Project Title | NOURIQ |
-| Project Category | University Cafeteria Management System |
+| Project Category | University Cafeteria & Food Waste Management System |
 | Project Type | Full-Stack Web Application |
 | Frontend | React.js and Vite |
 | Backend | Node.js and Express.js |
