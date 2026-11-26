@@ -14,7 +14,7 @@ if (!email || !password || password.length < 12) {
     await pool.execute(
       `INSERT INTO app_users (name, email, password_hash, role)
        VALUES (?, ?, ?, 'admin')
-       ON DUPLICATE KEY UPDATE name = VALUES(name), password_hash = VALUES(password_hash), role = 'admin'`,
+       ON CONFLICT (email) DO UPDATE SET name = EXCLUDED.name, password_hash = EXCLUDED.password_hash, role = 'admin'`,
       [name, email, passwordHash]
     );
     console.log('Admin account created or updated.');
