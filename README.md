@@ -3,7 +3,7 @@
 A full-stack web application for managing university cafeteria operations through centralized student records, menu data, attendance, food preparation, inventory, purchasing, and food-waste monitoring.
 
 <p align="center">
-  <strong>DBMS Capstone Project</strong><br />
+  <strong>University Cafeteria Management System</strong><br />
   React · Vite · Node.js · Express · MySQL
 </p>
 
@@ -175,8 +175,8 @@ Install the following:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/aradhana-bit/University-Cafeteria-Food-Demand-Waste-Management-System.git
-cd University-Cafeteria-Food-Demand-Waste-Management-System
+git clone https://github.com/aradhana-bit/NOURIQ.git
+cd NOURIQ
 ```
 
 ### 2. Configure the backend
@@ -278,7 +278,7 @@ For any public deployment, use strong unique secrets, restrict database permissi
 ## Repository Structure
 
 ```text
-University-Cafeteria-Food-Demand-Waste-Management-System/
+NOURIQ/
 |
 |-- backend/
 |   |-- src/
@@ -303,7 +303,7 @@ University-Cafeteria-Food-Demand-Waste-Management-System/
 | Field | Details |
 |---|---|
 | Project Title | NOURIQ |
-| Project Category | DBMS Capstone Project |
+| Project Category | University Cafeteria Management System |
 | Project Type | Full-Stack Web Application |
 | Frontend | React.js and Vite |
 | Backend | Node.js and Express.js |
