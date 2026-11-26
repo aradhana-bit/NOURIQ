@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { authenticate, authorize } from '../middleware/auth.middleware.js';
+import { list, create, update, remove } from '../controllers/resource.controller.js';
+const router = Router();
+router.use(authenticate);
+router.get('/:resource', list);
+router.post('/:resource', authorize('admin','manager'), create);
+router.put('/:resource/:id', authorize('admin','manager'), update);
+router.delete('/:resource/:id', authorize('admin','manager'), remove);
+export default router;

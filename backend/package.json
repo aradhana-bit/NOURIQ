@@ -4,7 +4,10 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node migrate.js && node server.js",
+    "seed:admin": "node seed-admin.js",
+    "seed:demo": "node seed-demo.js",
+    "migrate": "node migrate.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -14,7 +17,7 @@
     "express-rate-limit": "^7.5.0",
     "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
-    "mysql2": "^3.11.5"
+    "pg": "^8.16.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"

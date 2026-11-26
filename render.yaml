@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: nouriq-cafeteria-api
+    runtime: node
+    plan: free
+    region: singapore
+    branch: feature/complete-cafeteria-modules
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    autoDeployTrigger: commit
+    envVars:
+      - key: DATABASE_URL
+        sync: false
