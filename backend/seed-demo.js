@@ -90,7 +90,7 @@ async function seedDemoData() {
         const itemId = await ensureRow(
           'menu_item',
           ['menu_id', 'item_name', 'category', 'price', 'is_available'],
-          [menuId, item[0], item[1], item[2], 1],
+          [menuId, item[0], item[1], item[2], true],
           'menu_id = ? AND item_name = ?',
           [menuId, item[0]]
         );
