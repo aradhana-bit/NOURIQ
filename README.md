@@ -21,6 +21,19 @@ A full-stack web application designed to streamline university cafeteria operati
 
 ---
 
+## Live Deployment
+
+- **Web Application:** https://nouriq-cafeteria-web.onrender.com
+- **Backend API:** https://nouriq-cafeteria-api.onrender.com
+
+The web application is hosted on Render. The backend API is deployed separately.
+
+## Demo Access
+
+The application has an administrator demo account configured through the deployment environment. For security, the administrator password is **not published in this public repository**. Please request demo login credentials directly from the project maintainer.
+
+Never commit production passwords, database connection strings, or authentication secrets to GitHub.
+
 ## Overview
 
 The University Cafeteria Food Demand & Waste Management System is a full-stack Database Management System (DBMS) capstone project developed to simplify and organize university cafeteria operations.
