@@ -1,4 +1,4 @@
-# University Cafeteria Food Demand & Waste Management System
+# NOURIQ
 
 A full-stack web application for managing university cafeteria operations through centralized student records, menu data, attendance, food preparation, inventory, purchasing, and food-waste monitoring.
 
@@ -37,7 +37,7 @@ University cafeterias coordinate several connected activities every day: maintai
 
 When these activities are recorded separately, it becomes difficult to maintain consistent information and understand how food resources are being used.
 
-The **University Cafeteria Food Demand & Waste Management System** brings these operational areas into one web-based platform. It is designed to support organized record management, improve operational visibility, and provide a foundation for more informed cafeteria planning.
+The **NOURIQ** brings these operational areas into one web-based platform. It is designed to support organized record management, improve operational visibility, and provide a foundation for more informed cafeteria planning.
 
 ## Objectives
 
@@ -302,7 +302,7 @@ University-Cafeteria-Food-Demand-Waste-Management-System/
 
 | Field | Details |
 |---|---|
-| Project Title | University Cafeteria Food Demand & Waste Management System |
+| Project Title | NOURIQ |
 | Project Category | DBMS Capstone Project |
 | Project Type | Full-Stack Web Application |
 | Frontend | React.js and Vite |
@@ -314,6 +314,6 @@ University-Cafeteria-Food-Demand-Waste-Management-System/
 ---
 
 <p align="center">
-  <strong>University Cafeteria Food Demand & Waste Management System</strong><br />
+  <strong>NOURIQ</strong><br />
   Designed to bring clarity, structure, and data-driven thinking to cafeteria operations.
 </p>
