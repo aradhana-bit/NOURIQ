@@ -1,4 +1,4 @@
-# NOURIQ
+<h1 align="center">NOURIQ</h1>
 
 A full-stack web application for managing university cafeteria operations and food waste through centralized student records, menu data, attendance, food preparation, inventory, purchasing, and waste monitoring.
 
@@ -309,7 +309,7 @@ NOURIQ/
 | Backend | Node.js and Express.js |
 | Database Layer | MySQL-compatible relational database |
 | Deployment Platform | Render |
-| Repository | [GitHub Repository](https://github.com/aradhana-bit/University-Cafeteria-Food-Demand-Waste-Management-System) |
+| Repository | [GitHub Repository](https://github.com/aradhana-bit/NOURIQ) |
 
 ---
 
