@@ -9,8 +9,7 @@ A full-stack web application for managing university cafeteria operations throug
 
 <p align="center">
   <a href="https://nouriq-cafeteria-web.onrender.com">Live Application</a> ·
-  <a href="https://nouriq-cafeteria-api.onrender.com/api/health">API Health</a> ·
-  <a href="https://github.com/aradhana-bit/University-Cafeteria-Food-Demand-Waste-Management-System">Source Code</a>
+  <a href="https://nouriq-cafeteria-api.onrender.com/api/health">API Health</a>
 </p>
 
 ---
@@ -70,12 +69,23 @@ The **University Cafeteria Food Demand & Waste Management System** brings these 
 
 ## Technology Stack
 
+<p align="center">
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Recharts-22B5BF?style=for-the-badge&logo=react&logoColor=white" alt="Recharts" />
+  <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JWT" />
+</p>
+
 | Layer | Technology | Role |
 |---|---|---|
 | Frontend | React.js | Component-based user interface |
 | Frontend Tooling | Vite | Development server and production build |
+| Styling | Tailwind CSS | Utility-first interface styling |
 | Visualization | Recharts | Charts and data visualization |
-| Icons | Lucide React | Interface icons |
 | Backend | Node.js | Server-side JavaScript runtime |
 | API | Express.js | HTTP routes and middleware |
 | Database Driver | mysql2 | MySQL-compatible database connectivity |
@@ -84,7 +94,6 @@ The **University Cafeteria Food Demand & Waste Management System** brings these 
 | Security Middleware | Helmet, Express Rate Limit | HTTP security headers and request limiting |
 | Deployment | Render | Hosting for the web application and API |
 | Version Control | Git and GitHub | Source control and collaboration |
-
 ## System Architecture
 
 The application follows a client-server architecture.
